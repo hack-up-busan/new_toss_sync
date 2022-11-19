@@ -46,7 +46,7 @@ class _miniTabbarState extends State<miniTabbar> with TickerProviderStateMixin {
                   ),
                 ),
                 Container(
-                  height: 30,
+                  height: 100,
                   alignment: Alignment.center,
                   child: Text(
                     '인기',

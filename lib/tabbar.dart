@@ -111,36 +111,42 @@ class todayDiscoverys_test extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.black,
-      //alignment: Alignment.center,
-      child: Column(
-        children: [
-          //Container(height: 100,),
-          Padding(
-            padding: const EdgeInsets.only(top: 20.0, left: 10.0, right: 10.0, bottom: 20.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly, // 같은 간격만큼 공간을 둠
-              children: [
-                FilledCardExample(),
-                FilledCardExample()
-              ],
-            ),
-          ),
-          Container(
-            child: Text("실시간 차트",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20
+    return ListView(
+      children: [
+        Container(
+          height: 500,
+          child: Column(
+          children: [
+            //Container(height: 100,),
+            Padding(
+              padding: const EdgeInsets.only(top: 20.0, left: 10.0, right: 10.0, bottom: 20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly, // 같은 간격만큼 공간을 둠
+                children: [
+                  FilledCardExample(),
+                  FilledCardExample()
+                ],
               ),
+            ),
+            Container(
+              child: Text("실시간 차트",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20
+                ),
+
+              ),
+              margin: EdgeInsets.only(right: 220.0, bottom: 15.0),
 
             ),
-            margin: EdgeInsets.only(right: 220.0, bottom: 15.0),
-
-          ),
-          Expanded(child: miniTabbar())
-        ],
+            Expanded(child: miniTabbar())
+          ],
       ),
+        ),
+      ],
+      //color: Colors.black,
+      //alignment: Alignment.center,
+
     );
   }
 }
