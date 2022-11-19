@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:toss_assemble/stock_list.dart';
 
 //import '../components/hori_scroll.dart';
 
@@ -39,35 +40,35 @@ class _miniTabbarState extends State<miniTabbar> with TickerProviderStateMixin {
             child: TabBar(
               tabs: [
                 Container(
-                  height: 30,
+                  height: 25,
                   alignment: Alignment.center,
                   child: Text(
                     '거래량',
                   ),
                 ),
                 Container(
-                  height: 100,
+                  height: 25,
                   alignment: Alignment.center,
                   child: Text(
                     '인기',
                   ),
                 ),
                 Container(
-                  height: 30,
+                  height: 25,
                   alignment: Alignment.center,
                   child: Text(
                     '급상승',
                   ),
                 ),
                 Container(
-                  height: 30,
+                  height: 25,
                   alignment: Alignment.center,
                   child: Text(
                     '급하라',
                   ),
                 ),
                 Container(
-                  height: 30,
+                  height: 25,
                   alignment: Alignment.center,
                   child: Text(
                     '관심',
@@ -92,15 +93,16 @@ class _miniTabbarState extends State<miniTabbar> with TickerProviderStateMixin {
           Container(//Expanded에서 잠시 높이 설정
             //스크롤을 주려했으나 사이즈 설정에러
             //메인탭바스크롤, 미니탭바는 리스트(스크롤X)
-            height: 200,
+            height: 700, //화면맞게 크기 설정으로 바꾸기
             child: TabBarView(
               controller: _minitabController,
               children: [
                 Container(
-                  color: Colors.yellow[200],
+                  height: 1000,
+                  color: Colors.black,
                   alignment: Alignment.center,
                   //child: horiScroll(), //나중에 가로스크롤 파일 추가
-
+                    child: pageStock_list(),
                 ),
                 Container(
                   color: Colors.yellow[200],

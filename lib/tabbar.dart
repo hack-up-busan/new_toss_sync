@@ -111,10 +111,10 @@ class todayDiscoverys_test extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return ListView( //스크롤
       children: [
         Container(
-          height: 500,
+          height: 1000,
           child: Column(
           children: [
             //Container(height: 100,),
