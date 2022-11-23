@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'cardbox.dart';
+import 'hori_scroll.dart';
 import 'mini_tabbar.dart';
 
 
@@ -139,7 +140,10 @@ class todayDiscoverys_test extends StatelessWidget {
               margin: EdgeInsets.only(right: 220.0, bottom: 15.0),
 
             ),
-            Expanded(child: miniTabbar())
+            Expanded(
+                //height: 200,
+                child: miniTabbar()),
+           //나중에 가로스크롤 파일 추가
           ],
       ),
         ),

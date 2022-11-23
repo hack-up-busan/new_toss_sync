@@ -117,8 +117,7 @@ class _TabsScreenState extends State<TabsScreen> {
                   const BottomNavigationBarItem(
                       icon: Icon(Icons.attach_money_rounded), label: '송금'),
                   BottomNavigationBarItem(
-                    icon: const Icon(Icons.factory_rounded),
-                    label: '주식',
+                    icon: const Icon(Icons.factory_rounded), label: '주식',
                     backgroundColor: Colors.grey[900],
                   ),
                   const BottomNavigationBarItem(

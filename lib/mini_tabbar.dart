@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toss_assemble/stock_list.dart';
+import 'hori_scroll.dart';
 
 //import '../components/hori_scroll.dart';
 
@@ -35,7 +36,7 @@ class _miniTabbarState extends State<miniTabbar> with TickerProviderStateMixin {
                       color: Colors.grey
                   ),
                 ),
-                color: Colors.black
+                color: Color(0xFF18171D)
             ),
             child: TabBar(
               tabs: [
@@ -63,7 +64,8 @@ class _miniTabbarState extends State<miniTabbar> with TickerProviderStateMixin {
                 Container(
                   height: 25,
                   alignment: Alignment.center,
-                  child: Text(
+                  child:
+                  Text(
                     '급하라',
                   ),
                 ),
@@ -90,10 +92,10 @@ class _miniTabbarState extends State<miniTabbar> with TickerProviderStateMixin {
               controller: _minitabController,
             ),
           ),
-          Container(//Expanded에서 잠시 높이 설정
+          Expanded(//Expanded에서 잠시 높이 설정
             //스크롤을 주려했으나 사이즈 설정에러
             //메인탭바스크롤, 미니탭바는 리스트(스크롤X)
-            height: 700, //화면맞게 크기 설정으로 바꾸기
+            //height: 700, //화면맞게 크기 설정으로 바꾸기
             child: TabBarView(
               controller: _minitabController,
               children: [
@@ -147,6 +149,9 @@ class _miniTabbarState extends State<miniTabbar> with TickerProviderStateMixin {
               ],
             ),
           ),
+          Container(
+            height: 200,
+              child: HoriScroll(stocker: ["빌게이츠", "워렌버핏", "짐사이먼스", "켄그리핀"]))
         ],
       ),
     );

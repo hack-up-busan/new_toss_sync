@@ -4,7 +4,7 @@ import 'screens/search_screen.dart';
 import 'screens/setting_screen.dart';
 import 'screens/calendar_screen.dart';
 import 'transaction_list.dart';
-import 'screens/today_discovery.dart';
+//import 'screens/today_discovery.dart';
 import 'screens/mystock.dart';
 import 'appbar_icon.dart';
 import 'battom_navigationbar.dart';
@@ -32,7 +32,8 @@ class MyApp extends StatelessWidget {
         textTheme: const TextTheme(
             bodyText2:
             TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-        scaffoldBackgroundColor: const Color.fromARGB(141, 0, 0, 0),
+        //scaffoldBackgroundColor: const Color.fromARGB(141, 0, 0, 0),
+          scaffoldBackgroundColor : Color(0xFF18171D),
         appBarTheme: const AppBarTheme(color: Colors.black),
       ),
       routes: {
