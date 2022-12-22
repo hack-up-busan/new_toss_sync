@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets.dart';
+import 'package:toss_assemble/components/myStocks/holding_stock_status.dart';
 
 class MyStocks extends StatefulWidget {
   const MyStocks({Key? key}) : super(key: key);
@@ -14,6 +15,9 @@ class _MyStocksState extends State<MyStocks> {
     return ListView(children: [
       Column(
         children: const [
+          SizedBox(
+            height: 25.0,
+          ),
           CurrentMoney(
             currentMoney: 5.463,
             currentProfit: '-455원 (7.7%)',

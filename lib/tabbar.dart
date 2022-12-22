@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'cardbox.dart';
-import 'hori_scroll.dart';
+import 'components/TodayDiscovered/hori_scroll.dart';
 import 'mini_tabbar.dart';
-
-
 
 class TabPage extends StatefulWidget {
   const TabPage({Key? key}) : super(key: key);
@@ -20,7 +18,7 @@ class _TabPageState extends State<TabPage> with TickerProviderStateMixin {
   void initState() {
     _tabController = TabController(
       length: 2,
-      vsync: this,  //vsync에 this 형태로 전달해야 애니메이션이 정상 처리됨
+      vsync: this, //vsync에 this 형태로 전달해야 애니메이션이 정상 처리됨
     );
     super.initState();
   }
@@ -40,12 +38,9 @@ class _TabPageState extends State<TabPage> with TickerProviderStateMixin {
             Container(
               decoration: BoxDecoration(
                   border: Border(
-                    bottom: BorderSide(
-                        color: Colors.grey
-                    ),
+                    bottom: BorderSide(color: Colors.grey),
                   ),
-                  color: Colors.black
-              ),
+                  color: Colors.black),
               child: TabBar(
                 tabs: [
                   Container(
@@ -82,7 +77,6 @@ class _TabPageState extends State<TabPage> with TickerProviderStateMixin {
               child: TabBarView(
                 controller: _tabController,
                 children: [
-
                   Container(
                     color: Colors.yellow[200],
                     alignment: Alignment.center,
@@ -93,7 +87,6 @@ class _TabPageState extends State<TabPage> with TickerProviderStateMixin {
                       ),
                     ),
                   ),
-
                   todayDiscoverys_test(),
                 ],
               ),
@@ -112,45 +105,56 @@ class todayDiscoverys_test extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView( //스크롤
+    return ListView(
+      //스크롤
       children: [
         Container(
-          height: 1000,
+          height: 600,
           child: Column(
-          children: [
-            //Container(height: 100,),
-            Padding(
-              padding: const EdgeInsets.only(top: 20.0, left: 10.0, right: 10.0, bottom: 20.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly, // 같은 간격만큼 공간을 둠
-                children: [
-                  FilledCardExample(),
-                  FilledCardExample()
-                ],
-              ),
-            ),
-            Container(
-              child: Text("실시간 차트",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20
+            children: [
+              //Container(height: 100,),
+              Padding(
+                padding: const EdgeInsets.only(
+                    top: 20.0, left: 10.0, right: 10.0, bottom: 20.0),
+                child: Row(
+                  mainAxisAlignment:
+                      MainAxisAlignment.spaceEvenly, // 같은 간격만큼 공간을 둠
+                  children: const [
+                    FilledCardExample(
+                      countryFlagName: 'korea_flag',
+                      boundary: '국내',
+                    ),
+                    FilledCardExample(
+                      countryFlagName: 'america_flag',
+                      boundary: '해외',
+                    )
+                  ],
                 ),
-
               ),
-              margin: EdgeInsets.only(right: 220.0, bottom: 15.0),
-
-            ),
-            Expanded(
-                //height: 200,
-                child: miniTabbar()),
-           //나중에 가로스크롤 파일 추가
-          ],
-      ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  bottom: 12.0,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: const [
+                    Text(
+                      "실시간 차트",
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    ),
+                  ],
+                ),
+              ),
+              const Expanded(
+                  //height: 200,
+                  child: miniTabbar()),
+              //나중에 가로스크롤 파일 추가
+            ],
+          ),
         ),
       ],
       //color: Colors.black,
       //alignment: Alignment.center,
-
     );
   }
 }

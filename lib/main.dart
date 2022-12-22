@@ -10,7 +10,7 @@ import 'appbar_icon.dart';
 import 'battom_navigationbar.dart';
 import 'components/myStocks/popping_card.dart';
 //import 'tabs.dart';
-import 'constants.dart';
+import 'components/constants.dart';
 
 class MyBehavior extends ScrollBehavior {
   @override
@@ -101,7 +101,6 @@ class _StockPageState extends State<StockPage> {
         body: Column(
           children: [
             FinancialInfo(),
-            PoppingCard(),
             SizedBox(
               height: 7.0,
             ),
@@ -110,9 +109,7 @@ class _StockPageState extends State<StockPage> {
               indicatorColor: Colors.white,
               indicatorWeight: 1.5,
             ),
-            Container(
-              padding: EdgeInsets.fromLTRB(10.0, 20.0, 0.0, 0),
-              height: 470,
+            Expanded(
               child: TabBarView(children: [
                 MyStocks(),
                 todayDiscoverys_test(),
