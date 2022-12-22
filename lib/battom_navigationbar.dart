@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'constants.dart';
 
 class BottomNavigaitionBars extends StatelessWidget {
   const BottomNavigaitionBars({
@@ -8,6 +9,7 @@ class BottomNavigaitionBars extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+        backgroundColor: kAllThemeColour,
         iconSize: 25.0,
         elevation: 5.0,
         currentIndex: 3,

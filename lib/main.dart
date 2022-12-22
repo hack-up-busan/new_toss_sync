@@ -8,8 +8,9 @@ import 'transaction_list.dart';
 import 'screens/mystock.dart';
 import 'appbar_icon.dart';
 import 'battom_navigationbar.dart';
-import 'popping_card.dart';
+import 'components/myStocks/popping_card.dart';
 //import 'tabs.dart';
+import 'constants.dart';
 
 class MyBehavior extends ScrollBehavior {
   @override
@@ -31,10 +32,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         textTheme: const TextTheme(
             bodyText2:
-            TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
         //scaffoldBackgroundColor: const Color.fromARGB(141, 0, 0, 0),
-          scaffoldBackgroundColor : Color(0xFF18171D),
-        appBarTheme: const AppBarTheme(color: Colors.black),
+        scaffoldBackgroundColor: kAllThemeColour,
+        appBarTheme: AppBarTheme(
+          color: kAllThemeColour,
+        ),
       ),
       routes: {
         '/search_screen': (context) => SearchScreen('검색창'),
@@ -83,10 +86,16 @@ class _StockPageState extends State<StockPage> {
       child: Scaffold(
         appBar: AppBar(
           actionsIconTheme: IconThemeData(color: Colors.grey[800]),
-          actions: [
-            AppBarIcons('/search_screen'),
-            AppBarIcons('/calendars'),
-            AppBarIcons('/settings'),
+          actions: const [
+            AppBarIcons(
+              routeNames: '/search_screen',
+              icon: Icons.search,
+            ),
+            AppBarIcons(
+              routeNames: '/calendars',
+              icon: Icons.check_box,
+            ),
+            AppBarIcons(routeNames: '/settings', icon: Icons.settings),
           ],
         ),
         body: Column(
@@ -103,7 +112,7 @@ class _StockPageState extends State<StockPage> {
             ),
             Container(
               padding: EdgeInsets.fromLTRB(10.0, 20.0, 0.0, 0),
-              height: 350,
+              height: 470,
               child: TabBarView(children: [
                 MyStocks(),
                 todayDiscoverys_test(),
