@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'constants.dart';
 
 class cardBox extends StatelessWidget {
   const cardBox({Key? key}) : super(key: key);
@@ -41,15 +42,6 @@ class cardBox extends StatelessWidget {
   }
 }
 
-
-
-
-
-
-
-
-
-
 class FilledCardExample extends StatelessWidget {
   const FilledCardExample({super.key});
 
@@ -61,7 +53,7 @@ class FilledCardExample extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
-        color: Colors.grey,
+        color: kTodayDiscoveredCardColour,
         child: const SizedBox(
           width: 150,
           height: 100,

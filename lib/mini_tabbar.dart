@@ -18,7 +18,7 @@ class _miniTabbarState extends State<miniTabbar> with TickerProviderStateMixin {
   void initState() {
     _minitabController = TabController(
       length: 5,
-      vsync: this,  //vsync에 this 형태로 전달해야 애니메이션이 정상 처리됨
+      vsync: this, //vsync에 this 형태로 전달해야 애니메이션이 정상 처리됨
     );
     super.initState();
   }
@@ -32,12 +32,9 @@ class _miniTabbarState extends State<miniTabbar> with TickerProviderStateMixin {
           Container(
             decoration: BoxDecoration(
                 border: Border(
-                  bottom: BorderSide(
-                      color: Colors.grey
-                  ),
+                  bottom: BorderSide(color: Colors.grey),
                 ),
-                color: Color(0xFF18171D)
-            ),
+                color: Color(0xFF18171D)),
             child: TabBar(
               tabs: [
                 Container(
@@ -64,9 +61,8 @@ class _miniTabbarState extends State<miniTabbar> with TickerProviderStateMixin {
                 Container(
                   height: 25,
                   alignment: Alignment.center,
-                  child:
-                  Text(
-                    '급하라',
+                  child: Text(
+                    '급하락',
                   ),
                 ),
                 Container(
@@ -92,7 +88,8 @@ class _miniTabbarState extends State<miniTabbar> with TickerProviderStateMixin {
               controller: _minitabController,
             ),
           ),
-          Expanded(//Expanded에서 잠시 높이 설정
+          Expanded(
+            //Expanded에서 잠시 높이 설정
             //스크롤을 주려했으나 사이즈 설정에러
             //메인탭바스크롤, 미니탭바는 리스트(스크롤X)
             //height: 700, //화면맞게 크기 설정으로 바꾸기
@@ -104,7 +101,7 @@ class _miniTabbarState extends State<miniTabbar> with TickerProviderStateMixin {
                   color: Colors.black,
                   alignment: Alignment.center,
                   //child: horiScroll(), //나중에 가로스크롤 파일 추가
-                    child: pageStock_list(),
+                  child: pageStock_list(),
                 ),
                 Container(
                   color: Colors.yellow[200],
@@ -150,7 +147,7 @@ class _miniTabbarState extends State<miniTabbar> with TickerProviderStateMixin {
             ),
           ),
           Container(
-            height: 200,
+              height: 200,
               child: HoriScroll(stocker: ["빌게이츠", "워렌버핏", "짐사이먼스", "켄그리핀"]))
         ],
       ),

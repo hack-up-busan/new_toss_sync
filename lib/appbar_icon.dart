@@ -2,18 +2,19 @@ import 'package:flutter/material.dart';
 
 class AppBarIcons extends StatelessWidget {
   final String routeNames;
+  final IconData icon;
 
-  AppBarIcons(this.routeNames);
+  const AppBarIcons({super.key, required this.routeNames, required this.icon});
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
-        onPressed: () {
-          Navigator.pushNamed(context, routeNames);
-        },
-        icon: const Icon(
-          Icons.search,
-          size: 25.0,
-        ));
+      onPressed: () {
+        Navigator.pushNamed(context, routeNames);
+      },
+      icon: Icon(
+        icon,
+      ),
+    );
   }
 }

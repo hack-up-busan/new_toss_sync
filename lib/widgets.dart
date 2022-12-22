@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'constants.dart';
 
 class TwotextButton extends StatelessWidget {
   final String name;
@@ -128,7 +129,7 @@ class InvestStock extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.black,
+      color: Color(0xFF18171D),
       child: ListTile(
         onTap: () {},
         trailing: Column(
@@ -226,14 +227,14 @@ class CurrentMoney extends StatelessWidget {
               iconSize: 15.0,
             ),
             SizedBox(
-              width: 145.0,
+              width: 120.0,
             ),
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
-                color: Colors.grey[800],
+                color: kContainerColour,
               ),
-              child: GoAllaseets('총 자산 보기'),
+              child: GoAllaseets('내 계좌 보기'),
             ),
           ],
         ),
@@ -265,7 +266,7 @@ class InterestingStockList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.fromLTRB(1.0, 15.0, 1.0, 0.0),
-      color: Colors.grey[900],
+      color: Color(0xFF18171D),
       child: Column(
         children: [
           ListTile(
@@ -320,7 +321,7 @@ class DemandStock extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 40.0),
-      color: Colors.grey[900],
+      color: Color(0xFF18171D),
       child: Row(
         children: [
           SizedBox(width: 10.0),
@@ -375,7 +376,7 @@ class SendOpinion extends StatelessWidget {
     return Container(
       padding: EdgeInsets.fromLTRB(0.0, 15.0, 5.0, 5.0),
       child: Card(
-        color: Colors.black,
+        color: Color(0xFF18171D),
         child: ListTile(
           onTap: () {},
           leading: Icon(
@@ -420,7 +421,7 @@ class Docs extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 10.0),
-      color: Colors.black,
+      color: Color(0xFF18171D),
       child: Column(
         children: [
           Row(
@@ -500,7 +501,7 @@ class CautiousInfo extends StatelessWidget {
       height: 20.0,
       child: TextButton(
         style: TextButton.styleFrom(
-            backgroundColor: Colors.black, padding: EdgeInsets.all(3.0)),
+            backgroundColor: Color(0xFF18171D), padding: EdgeInsets.all(3.0)),
         onPressed: () {},
         child: Text(
           info,
