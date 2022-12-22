@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'model.dart';
-import 'constants.dart';
+import '../../model.dart';
+import '../constants.dart';
 
 class pageStock_list extends StatefulWidget {
   const pageStock_list({Key? key}) : super(key: key);
@@ -21,8 +21,8 @@ class _pageStock_listState extends State<pageStock_list> {
     //사진경로 넣기, yaml파일에도
     /*'image/bear.png', 'image/fox.png', 'image/deer.png', 'image/camel.png', 'image/tiger.png',
     'image/lion.png', 'image/koala.png', 'image/kangaroo.png', 'image/back.png', 'image/red.jpg'*/
-    'assets/images/tesla.png',
-    'assets/images/tesla.png',
+    'assets/images/삼성.png',
+    'assets/images/kakaotalk.png',
     'assets/images/tesla.png',
     'assets/images/tesla.png',
     'assets/images/tesla.png',

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'constants.dart';
+import 'components/constants.dart';
 
 class cardBox extends StatelessWidget {
   const cardBox({Key? key}) : super(key: key);
@@ -43,21 +43,45 @@ class cardBox extends StatelessWidget {
 }
 
 class FilledCardExample extends StatelessWidget {
-  const FilledCardExample({super.key});
+  final String countryFlagName;
+  final String boundary;
+
+  const FilledCardExample(
+      {super.key, required this.countryFlagName, required this.boundary});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Card(
-        elevation: 0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
-        color: kTodayDiscoveredCardColour,
-        child: const SizedBox(
-          width: 150,
-          height: 100,
-          child: Center(child: Text('Filled Card')),
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ListTile(
+          tileColor: kTodayDiscoveredCardColour,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          leading: SizedBox(
+            width: 40.0,
+            child: ClipRRect(
+                borderRadius: BorderRadius.circular(30.0),
+                child: Image.asset('assets/images/$countryFlagName.png')),
+          ),
+          title: Row(
+            children: [
+              Text(
+                boundary,
+                style: kBoundaryTextStyle,
+              ),
+              const Icon(
+                Icons.arrow_forward_ios_sharp,
+                size: 13.0,
+                color: Color(0xFF7F7F89),
+              ),
+            ],
+          ),
+          subtitle: Text(
+            'N시간 후',
+            style: kMarketOpeningHoursTextStyle,
+          ),
         ),
       ),
     );
