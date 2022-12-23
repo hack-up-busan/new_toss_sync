@@ -11,6 +11,7 @@ import 'battom_navigationbar.dart';
 import 'components/myStocks/popping_card.dart';
 //import 'tabs.dart';
 import 'components/constants.dart';
+import 'package:toss_assemble/components/tabs.dart';
 
 class MyBehavior extends ScrollBehavior {
   @override
@@ -56,23 +57,6 @@ class StockPage extends StatefulWidget {
 }
 
 class _StockPageState extends State<StockPage> {
-  final List<Tab> myTabs = [
-    const Tab(
-      child: const Text('내 주식',
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 18.0,
-              color: Colors.white)),
-    ),
-    const Tab(
-      child: const Text('오늘의 발견',
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 18.0,
-              color: Colors.white)),
-    ),
-  ];
-
   List<Transaction> transactions = [
     Transaction(name: '삼성전자', amount: 1, won: '1,740', yield: '+205(13.3)%'),
     Transaction(
@@ -81,36 +65,50 @@ class _StockPageState extends State<StockPage> {
 
   @override
   Widget build(BuildContext context) {
+    final appbar = AppBar(
+      actionsIconTheme: IconThemeData(color: Colors.grey[800]),
+      actions: const [
+        AppBarIcons(
+          routeNames: '/search_screen',
+          icon: Icons.search,
+        ),
+        AppBarIcons(
+          routeNames: '/calendars',
+          icon: Icons.check_box,
+        ),
+        AppBarIcons(routeNames: '/settings', icon: Icons.settings),
+      ],
+    );
+
     return DefaultTabController(
       length: myTabs.length,
       child: Scaffold(
-        appBar: AppBar(
-          actionsIconTheme: IconThemeData(color: Colors.grey[800]),
-          actions: const [
-            AppBarIcons(
-              routeNames: '/search_screen',
-              icon: Icons.search,
-            ),
-            AppBarIcons(
-              routeNames: '/calendars',
-              icon: Icons.check_box,
-            ),
-            AppBarIcons(routeNames: '/settings', icon: Icons.settings),
-          ],
-        ),
+        appBar: appbar,
         body: Column(
           children: [
-            FinancialInfo(),
-            SizedBox(
-              height: 7.0,
+            Container(
+                height: (MediaQuery.of(context).size.height -
+                        appbar.preferredSize.height -
+                        MediaQuery.of(context).padding.top) *
+                    0.07,
+                child: FinancialInfo()),
+            Container(
+              height: (MediaQuery.of(context).size.height -
+                      appbar.preferredSize.height -
+                      MediaQuery.of(context).padding.top) *
+                  0.07,
+              child: TabBar(
+                tabs: myTabs,
+                indicatorColor: Colors.white,
+                indicatorWeight: 1.5,
+              ),
             ),
-            TabBar(
-              tabs: myTabs,
-              indicatorColor: Colors.white,
-              indicatorWeight: 1.5,
-            ),
-            Expanded(
-              child: TabBarView(children: [
+            Container(
+              height: (MediaQuery.of(context).size.height -
+                      appbar.preferredSize.height -
+                      MediaQuery.of(context).padding.top) *
+                  0.76,
+              child: const TabBarView(children: [
                 MyStocks(),
                 todayDiscoverys_test(),
               ]),

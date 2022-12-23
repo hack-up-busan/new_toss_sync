@@ -51,38 +51,32 @@ class FilledCardExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ListTile(
-          tileColor: kTodayDiscoveredCardColour,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
+    return ListTile(
+      tileColor: kTodayDiscoveredCardColour,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
+      leading: CircleAvatar(
+          child: Image.asset('assets/images/$countryFlagName.png')),
+      title: Row(
+        children: [
+          Text(
+            boundary,
+            style: kBoundaryTextStyle,
           ),
-          leading: SizedBox(
-            width: 40.0,
-            child: ClipRRect(
-                borderRadius: BorderRadius.circular(30.0),
-                child: Image.asset('assets/images/$countryFlagName.png')),
+          SizedBox(
+            width: 5.0,
           ),
-          title: Row(
-            children: [
-              Text(
-                boundary,
-                style: kBoundaryTextStyle,
-              ),
-              const Icon(
-                Icons.arrow_forward_ios_sharp,
-                size: 13.0,
-                color: Color(0xFF7F7F89),
-              ),
-            ],
+          const Icon(
+            Icons.arrow_forward_ios_sharp,
+            size: 12.0,
+            color: Color(0xFF7F7F89),
           ),
-          subtitle: Text(
-            'N시간 후',
-            style: kMarketOpeningHoursTextStyle,
-          ),
-        ),
+        ],
+      ),
+      subtitle: Text(
+        'N시간 후',
+        style: kMarketOpeningHoursTextStyle,
       ),
     );
   }
