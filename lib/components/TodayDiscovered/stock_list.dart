@@ -23,14 +23,14 @@ class _pageStock_listState extends State<pageStock_list> {
     'image/lion.png', 'image/koala.png', 'image/kangaroo.png', 'image/back.png', 'image/red.jpg'*/
     'assets/images/삼성.png',
     'assets/images/kakaotalk.png',
-    'assets/images/tesla.png',
-    'assets/images/tesla.png',
-    'assets/images/tesla.png',
-    'assets/images/tesla.png',
-    'assets/images/tesla.png',
-    'assets/images/tesla.png',
-    'assets/images/tesla.png',
-    'assets/images/tesla.png'
+    'assets/images/네이버.png',
+    'assets/images/sk하이닉스.png',
+    'assets/images/현대.png',
+    'assets/images/LG화학.png',
+    'assets/images/대한항공.png',
+    'assets/images/셀트리온.png',
+    'assets/images/삼성바이오로직스.png',
+    'assets/images/LG전자.png'
   ];
 
   static List<String> stockAddPerson = [
