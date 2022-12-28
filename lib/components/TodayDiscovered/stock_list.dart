@@ -49,10 +49,11 @@ class _pageStock_listState extends State<pageStock_list> {
 
   final List<Stock> stockData = List.generate(
       stockName.length,
-      (index) => //길이만큼 오름차순 호출
-          Stock(stockName[index], stockImgPath[index],
-              stockAddPerson[index])); //주식데이터전달
-
+          (index) => //길이만큼 오름차순 호출
+      Stock(stockName[index], stockImgPath[index],
+          stockAddPerson[index])); //주식데이터전달
+  //bool _isLiked = false; // Track the state of the heart icon
+  List<bool> _isLiked = List.filled(stockName.length, false);
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -60,10 +61,10 @@ class _pageStock_listState extends State<pageStock_list> {
       itemBuilder: (context, index) {
         return Card(
           color: kRealTimeStockBackgroundColour,
-          elevation: 0.0, //위공간사라짐
+          elevation: 0.0,
           shape: BeveledRectangleBorder(
-              borderRadius: BorderRadius.zero //카드 디폴트 모양은 둥글
-              ),
+              borderRadius: BorderRadius.zero
+          ),
           child: ListTile(
             title: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,7 +76,7 @@ class _pageStock_listState extends State<pageStock_list> {
                     fontSize: 17.0,
                   ),
                 ),
-                //SizedBox(height: 7.0),
+
                 Text(
                   stockData[index].addPerson,
                   style: TextStyle(color: Color(0xFFD1D1E0), fontSize: 13.0),
@@ -87,7 +88,16 @@ class _pageStock_listState extends State<pageStock_list> {
               width: 50,
               child: Image.asset(stockData[index].imgPath),
             ),
-            trailing: Icon(Icons.heart_broken),
+            // Modify the heart icon to change between a filled and an empty heart
+            // based on the value of _isLiked[index]
+            trailing: IconButton(
+              icon: _isLiked[index] ? Icon(Icons.favorite, color: Colors.red) : Icon(Icons.favorite_border),
+              onPressed: () {
+                setState(() {
+                  _isLiked[index] = !_isLiked[index];
+                });
+              },
+            ),
           ),
         );
       },
