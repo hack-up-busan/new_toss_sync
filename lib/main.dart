@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:toss_assemble/tabbar.dart';
+import 'package:toss_assemble/mini_tabbar.dart';
+import 'package:toss_assemble/today_discovery_test.dart';
 import 'screens/search_screen.dart';
 import 'screens/setting_screen.dart';
 import 'screens/calendar_screen.dart';
-import 'transaction_list.dart';
+import 'models/transaction_list.dart';
 //import 'screens/today_discovery.dart';
 import 'screens/mystock.dart';
 import 'appbar_icon.dart';
@@ -12,6 +13,7 @@ import 'components/myStocks/popping_card.dart';
 //import 'tabs.dart';
 import 'components/constants.dart';
 import 'package:toss_assemble/components/tabs.dart';
+import 'package:toss_assemble/models/transaction.dart';
 
 class MyBehavior extends ScrollBehavior {
   @override
@@ -56,12 +58,24 @@ class StockPage extends StatefulWidget {
   State<StockPage> createState() => _StockPageState();
 }
 
-class _StockPageState extends State<StockPage> {
-  List<Transaction> transactions = [
-    Transaction(name: '삼성전자', amount: 1, won: '1,740', yield: '+205(13.3)%'),
-    Transaction(
-        name: '테슬라', amount: 0.011814, won: '3,485', yield: '-899(20.5)%')
-  ];
+class _StockPageState extends State<StockPage>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+  late ScrollController _scrollController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 2, vsync: this);
+    _scrollController = ScrollController();
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,46 +94,40 @@ class _StockPageState extends State<StockPage> {
       ],
     );
 
-    return DefaultTabController(
-      length: myTabs.length,
-      child: Scaffold(
-        appBar: appbar,
-        body: Column(
-          children: [
-            Container(
-                height: (MediaQuery.of(context).size.height -
-                        appbar.preferredSize.height -
-                        MediaQuery.of(context).padding.top) *
-                    0.07,
-                child: FinancialInfo()),
-            Container(
-              height: (MediaQuery.of(context).size.height -
-                      appbar.preferredSize.height -
-                      MediaQuery.of(context).padding.top) *
-                  0.07,
-              child: TabBar(
-                tabs: myTabs,
+    return Scaffold(
+      appBar: appbar,
+      body: NestedScrollView(
+        controller: _scrollController,
+        headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+          return <Widget>[
+            SliverAppBar(
+              title: const FinancialInfo(),
+              pinned: true,
+              expandedHeight: 100.0,
+              floating: true,
+              forceElevated: innerBoxIsScrolled,
+              bottom: TabBar(
+                tabs: tabs,
                 indicatorColor: Colors.white,
                 indicatorWeight: 1.5,
+                controller: _tabController,
               ),
             ),
-            Container(
-              height: (MediaQuery.of(context).size.height -
-                      appbar.preferredSize.height -
-                      MediaQuery.of(context).padding.top) *
-                  0.76,
-              child: const TabBarView(children: [
-                MyStocks(),
-                todayDiscoverys_test(),
-              ]),
-            ),
+          ];
+        },
+        body: TabBarView(
+          // These are the contents of the tab views, below the tabs.
+          children: <Widget>[
+            MyStocks(),
+            todayDiscoverys_test(),
           ],
+          controller: _tabController,
         ),
-        bottomNavigationBar: ClipRRect(
-          borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(20.0), topRight: Radius.circular(20.0)),
-          child: BottomNavigaitionBars(),
-        ),
+      ),
+      bottomNavigationBar: ClipRRect(
+        borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(20.0), topRight: Radius.circular(20.0)),
+        child: BottomNavigaitionBars(),
       ),
     );
   }

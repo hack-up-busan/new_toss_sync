@@ -30,10 +30,10 @@ class PersonCircle extends StatelessWidget {
       child: Column(
         children: [
           CircleAvatar(
-            radius: 30,
+            radius: 50,
             backgroundImage: AssetImage("assets/images/$img.png"),
           ),
-          const SizedBox(height: 10.0),
+          const SizedBox(height: 15.0),
           Text(
             img,
             style: kInvestorNameTextStyle,

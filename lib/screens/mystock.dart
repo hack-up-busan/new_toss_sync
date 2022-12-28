@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets.dart';
+import '../components/widgets.dart';
 import 'package:toss_assemble/components/myStocks/holding_stock_status.dart';
 import 'package:toss_assemble/components/feedback_docs.dart';
 import 'package:toss_assemble/components/black_divider.dart';

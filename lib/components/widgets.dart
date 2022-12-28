@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'components/constants.dart';
+import 'constants.dart';
 
 class TwotextButton extends StatelessWidget {
   final String name;

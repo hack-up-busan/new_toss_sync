@@ -27,8 +27,39 @@ class _miniTabbarState extends State<miniTabbar> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        RealtimeTabs(minitabController: _minitabController),
         Container(
+          height: 30.0,
+          decoration: BoxDecoration(
+            border: Border(
+              bottom: BorderSide(color: Colors.grey),
+            ),
+            color: Color(0xFF18171D),
+          ),
+          child: TabBar(
+            tabs: [
+              miniTabs(
+                label: '거래량',
+              ),
+              miniTabs(
+                label: '인기',
+              ),
+              miniTabs(
+                label: '급상승',
+              ),
+              miniTabs(
+                label: '급하락',
+              ),
+              miniTabs(
+                label: '관심',
+              ),
+            ],
+            labelColor: Colors.white,
+            unselectedLabelColor: Colors.grey,
+            controller: _minitabController,
+          ),
+        ),
+        Container(
+          height: 400,
           //Expanded에서 잠시 높이 설정
           //스크롤을 주려했으나 사이즈 설정에러
           //메인탭바스크롤, 미니탭바는 리스트(스크롤X)
@@ -50,27 +81,22 @@ class _miniTabbarState extends State<miniTabbar> with TickerProviderStateMixin {
 }
 
 class RealtimeTabs extends StatefulWidget {
-  const RealtimeTabs({
-    Key? key,
-    required TabController minitabController,
-  })  : _minitabController = minitabController,
-        super(key: key);
-
-  final TabController _minitabController;
-
   @override
   State<RealtimeTabs> createState() => _RealtimeTabsState();
 }
 
 class _RealtimeTabsState extends State<RealtimeTabs> {
+  late TabController _minitabController;
+
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          border: Border(
-            bottom: BorderSide(color: Colors.grey),
-          ),
-          color: Color(0xFF18171D)),
+        border: Border(
+          bottom: BorderSide(color: Colors.grey),
+        ),
+        color: Color(0xFF18171D),
+      ),
       child: TabBar(
         tabs: const [
           miniTabs(
@@ -101,7 +127,7 @@ class _RealtimeTabsState extends State<RealtimeTabs> {
           ),*/
         labelColor: Colors.white,
         unselectedLabelColor: Colors.grey,
-        controller: widget._minitabController,
+        controller: _minitabController,
       ),
     );
   }
@@ -160,7 +186,7 @@ class RealtimeCharText extends StatelessWidget {
           ),
           Text(
             "실시간 차트",
-            style: TextStyle(color: Color(0xFFFEFEFF), fontSize: 18),
+            style: TextStyle(color: Color(0xFFFEFEFF), fontSize: 20),
           ),
         ],
       ),

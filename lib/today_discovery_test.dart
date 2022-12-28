@@ -1,24 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:toss_assemble/components/black_divider.dart';
-import 'cardbox.dart';
+import 'components/TodayDiscovered/cardbox.dart';
 import 'components/TodayDiscovered/hori_scroll.dart';
 import 'mini_tabbar.dart';
 
 class todayDiscoverys_test extends StatefulWidget {
-  const todayDiscoverys_test({
-    Key? key,
-  }) : super(key: key);
-
   @override
   State<todayDiscoverys_test> createState() => _todayDiscoverys_testState();
 }
 
 class _todayDiscoverys_testState extends State<todayDiscoverys_test>
     with TickerProviderStateMixin {
-  late TabController _minitabController = TabController(
-    length: 5,
-    vsync: this,
-  );
+  late TabController _minitabController;
 
   @override
   void initState() {
@@ -30,89 +23,108 @@ class _todayDiscoverys_testState extends State<todayDiscoverys_test>
   }
 
   @override
+  void dispose() {
+    _minitabController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (BuildContext, constraints) {
-      return ListView(
-        children: [
-          Column(
-            children: [
-              SizedBox(
-                height: constraints.maxHeight * 0.05,
-              ),
-              Container(
-                height: constraints.maxHeight * 0.15,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  // 같은 간격만큼 공간을 둠
-                  children: [
-                    Container(
-                      width: constraints.maxWidth * 0.45,
-                      child: FilledCardExample(
-                        countryFlagName: 'korea_flag',
-                        boundary: '국내',
-                      ),
-                    ),
-                    Container(
-                      width: constraints.maxWidth * 0.45,
-                      child: FilledCardExample(
-                        countryFlagName: 'america_flag',
-                        boundary: '해외',
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              SizedBox(height: 10.0),
-              Container(
-                child: RealtimeCharText(),
-              ),
-              RealtimeTabs(minitabController: _minitabController),
-              TabBarView(
-                controller: _minitabController,
-                children: const [
-                  RealtimeChartlist(),
-                  RealtimeChartlist(),
-                  RealtimeChartlist(),
-                  RealtimeChartlist(),
-                  RealtimeChartlist(),
-                ],
-              ),
-            ],
-          ),
-          BlackDivider(),
-          Container(
-            child: Column(
+    List<Widget> labels = [];
+    for (int i = 0; i <= 50; i++) {
+      labels.add(Text(i.toString()));
+    }
+
+    return ListView(
+      physics: const ScrollPhysics(),
+      shrinkWrap: true,
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 15.0,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
-                  child: Text(
-                    '주식천재 따라사기',
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFFFEFEFF),
-                    ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.43,
+                  child: FilledCardExample(
+                    countryFlagName: 'korea_flag',
+                    boundary: '국내',
                   ),
                 ),
-                Container(
-                  child: Text(
-                    '먼저 부자가 된 그들의 선택은?',
-                    style: TextStyle(
-                      fontSize: 10.0,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF9E9DA3),
-                    ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.43,
+                  child: FilledCardExample(
+                    countryFlagName: 'america_flag',
+                    boundary: '해외',
                   ),
                 ),
-                Container(
-                    height: 50.0,
-                    child: HoriScroll(
-                        investor: ["빌게이츠", "워렌버핏", "짐사이먼스", "켄그리핀"])),
               ],
             ),
-          ),
-        ],
-      );
-    });
+            SizedBox(
+              height: 15.0,
+            ),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: RealtimeCharText(),
+            ),
+            miniTabbar(),
+            BlackDivider(),
+            SizedBox(
+              height: 15.0,
+            ),
+            Row(
+              children: [
+                SizedBox(
+                  width: 10.0,
+                ),
+                Container(
+                  padding: EdgeInsets.all(8.0),
+                  child: Column(
+                    children: const [
+                      Text(
+                        '주식천재 따라사기',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFFFEFEFF),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5.0,
+                      ),
+                      Text(
+                        '먼저 부자가 된 그들의 선택은?',
+                        style: TextStyle(
+                          fontSize: 12.0,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF9E9DA3),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            Container(
+              height: 300,
+              child: HoriScroll(
+                investor: ['빌게이츠', '워렌버핏', '켄그리핀', '짐사이먼스'],
+              ),
+            ),
+          ],
+        ),
+      ],
+      //color: Colors.black,
+      //alignment: Alignment.center,
+    );
+    //스크롤
   }
 }
 

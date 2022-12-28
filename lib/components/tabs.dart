@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-final List<Tab> myTabs = [
+final List<Tab> tabs = [
   const Tab(
     child: const Text('내 주식',
         style: TextStyle(
