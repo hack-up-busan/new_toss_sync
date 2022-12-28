@@ -14,6 +14,7 @@ class AppBarIcons extends StatelessWidget {
       },
       icon: Icon(
         icon,
+        size: 30.0,
       ),
     );
   }

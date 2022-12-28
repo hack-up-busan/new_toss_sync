@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'components/constants.dart';
+import '../constants.dart';
 
 class cardBox extends StatelessWidget {
   const cardBox({Key? key}) : super(key: key);
@@ -47,43 +47,63 @@ class FilledCardExample extends StatelessWidget {
   final String boundary;
 
   const FilledCardExample(
-      {super.key, required this.countryFlagName, required this.boundary});
+      {required this.countryFlagName, required this.boundary});
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ListTile(
-          tileColor: kTodayDiscoveredCardColour,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
+    return Container(
+      height: 90,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        color: kTodayDiscoveredCardColour,
+      ),
+      child: Row(
+        children: [
+          SizedBox(width: MediaQuery.of(context).size.width * 0.05),
+          CircleAvatar(
+            radius: 20.0,
+            child: Image.asset('assets/images/$countryFlagName.png'),
           ),
-          leading: SizedBox(
-            width: 40.0,
-            child: ClipRRect(
-                borderRadius: BorderRadius.circular(30.0),
-                child: Image.asset('assets/images/$countryFlagName.png')),
-          ),
-          title: Row(
+          SizedBox(width: 15.0),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                boundary,
-                style: kBoundaryTextStyle,
+              Row(
+                children: [
+                  Text(
+                    boundary,
+                    style: kBoundaryTextStyle,
+                  ),
+                  SizedBox(
+                    width: 5.0,
+                  ),
+                  const Icon(
+                    Icons.arrow_forward_ios_sharp,
+                    size: 12.0,
+                    color: Color(0xFF7F7F89),
+                  ),
+                ],
               ),
-              const Icon(
-                Icons.arrow_forward_ios_sharp,
-                size: 13.0,
-                color: Color(0xFF7F7F89),
+              Text(
+                'N시간 후',
+                style: kMarketOpeningHoursTextStyle,
               ),
             ],
           ),
-          subtitle: Text(
-            'N시간 후',
-            style: kMarketOpeningHoursTextStyle,
-          ),
-        ),
+        ],
       ),
     );
   }
 }
+// ListTile(
+// tileColor: kTodayDiscoveredCardColour,
+// shape: RoundedRectangleBorder(
+// borderRadius: BorderRadius.circular(20),
+// ),
+// title: Row(
+// children: [
+// Expanded(
+// ),
+// ],
+// ),
+// );

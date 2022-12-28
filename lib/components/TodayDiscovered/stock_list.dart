@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../model.dart';
+import '../../models/model.dart';
 import '../constants.dart';
 
 class pageStock_list extends StatefulWidget {

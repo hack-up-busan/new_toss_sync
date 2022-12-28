@@ -14,7 +14,7 @@ class CurrentMoney extends StatelessWidget {
       children: [
         Row(mainAxisAlignment: MainAxisAlignment.start, children: [
           SizedBox(
-            width: 10.0,
+            width: 20.0,
           ),
           Text(
             '보유 주식',
@@ -28,7 +28,7 @@ class CurrentMoney extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SizedBox(
-              width: 10.0,
+              width: 20.0,
             ),
             Text(
               '${currentMoney}원',
@@ -47,26 +47,20 @@ class CurrentMoney extends StatelessWidget {
             SizedBox(
               width: 160.0,
             ),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                color: kContainerColour,
-              ),
-              child: GoAllaseets('내 계좌 보기'),
-            ),
+            const GoAllMyAsset('내 계좌 보기'),
           ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SizedBox(
-              width: 10.0,
+              width: 20.0,
             ),
             Text(
               currentProfit,
-              style: TextStyle(
-                  color: Colors.blue[400],
-                  fontSize: 18.0,
+              style: const TextStyle(
+                  color: Color(0xFF3E6FB2),
+                  fontSize: 16.0,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 0.5),
             ),
@@ -77,20 +71,29 @@ class CurrentMoney extends StatelessWidget {
   }
 }
 
-class GoAllaseets extends StatelessWidget {
+class GoAllMyAsset extends StatelessWidget {
   final String name;
-  GoAllaseets(this.name);
+  const GoAllMyAsset(this.name);
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: () {},
-      child: Text(
-        name,
-        style: TextStyle(
-          fontSize: 14.0,
-          fontWeight: FontWeight.bold,
-          color: Colors.grey[300],
+    return SizedBox(
+      height: 35.0,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0),
+          color: kContainerColour,
+        ),
+        child: TextButton(
+          onPressed: () {},
+          child: Text(
+            name,
+            style: TextStyle(
+              fontSize: 12.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.grey[300],
+            ),
+          ),
         ),
       ),
     );

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import '../widgets.dart';
+import '../components/widgets.dart';
 import 'package:toss_assemble/components/myStocks/holding_stock_status.dart';
+import 'package:toss_assemble/components/feedback_docs.dart';
+import 'package:toss_assemble/components/black_divider.dart';
 
 class MyStocks extends StatefulWidget {
   const MyStocks({Key? key}) : super(key: key);
@@ -44,23 +46,15 @@ class _MyStocksState extends State<MyStocks> {
               stockName: '테슬라',
               stockNumbers: '0.011814',
               stockPrice: '4,174'),
-          Divider(
-            height: 20.0,
-            color: Colors.black,
-          ),
+          BlackDivider(),
         ],
       ),
       const InterestingStockList(),
-      const Divider(
-        height: 20.0,
-        color: Colors.black,
-        thickness: 2.0,
-      ),
+      const BlackDivider(),
       const DemandStock(),
       const SendOpinion(),
-      Divider(
-        height: 20.0,
-        color: Colors.grey[100],
+      const Divider(
+        height: 1.0,
       ),
       const Docs(),
     ]);

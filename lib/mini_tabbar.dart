@@ -28,13 +28,15 @@ class _miniTabbarState extends State<miniTabbar> with TickerProviderStateMixin {
     return Column(
       children: [
         Container(
+          height: 30.0,
           decoration: BoxDecoration(
-              border: Border(
-                bottom: BorderSide(color: Colors.grey),
-              ),
-              color: Color(0xFF18171D)),
+            border: Border(
+              bottom: BorderSide(color: Colors.grey),
+            ),
+            color: Color(0xFF18171D),
+          ),
           child: TabBar(
-            tabs: const [
+            tabs: [
               miniTabs(
                 label: '거래량',
               ),
@@ -51,22 +53,13 @@ class _miniTabbarState extends State<miniTabbar> with TickerProviderStateMixin {
                 label: '관심',
               ),
             ],
-            /*indicator: BoxDecoration(
-                gradient: LinearGradient(  //배경 그라데이션 적용
-                  begin: Alignment.centerLeft,
-                  end: Alignment.centerRight,
-                  colors: [
-                    Colors.blueAccent,
-                    Colors.pinkAccent,
-                  ],
-                ),
-              ),*/
             labelColor: Colors.white,
             unselectedLabelColor: Colors.grey,
             controller: _minitabController,
           ),
         ),
-        Expanded(
+        Container(
+          height: 400,
           //Expanded에서 잠시 높이 설정
           //스크롤을 주려했으나 사이즈 설정에러
           //메인탭바스크롤, 미니탭바는 리스트(스크롤X)
@@ -82,9 +75,60 @@ class _miniTabbarState extends State<miniTabbar> with TickerProviderStateMixin {
             ],
           ),
         ),
-        Expanded(
-            child: HoriScroll(investor: ["빌게이츠", "워렌버핏", "짐사이먼스", "켄그리핀"])),
       ],
+    );
+  }
+}
+
+class RealtimeTabs extends StatefulWidget {
+  @override
+  State<RealtimeTabs> createState() => _RealtimeTabsState();
+}
+
+class _RealtimeTabsState extends State<RealtimeTabs> {
+  late TabController _minitabController;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(color: Colors.grey),
+        ),
+        color: Color(0xFF18171D),
+      ),
+      child: TabBar(
+        tabs: const [
+          miniTabs(
+            label: '인기',
+          ),
+          miniTabs(
+            label: '거래량',
+          ),
+          miniTabs(
+            label: '급상승',
+          ),
+          miniTabs(
+            label: '급하락',
+          ),
+          miniTabs(
+            label: '관심',
+          ),
+        ],
+        /*indicator: BoxDecoration(
+            gradient: LinearGradient(  //배경 그라데이션 적용
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: [
+                Colors.blueAccent,
+                Colors.pinkAccent,
+              ],
+            ),
+          ),*/
+        labelColor: Colors.white,
+        unselectedLabelColor: Colors.grey,
+        controller: _minitabController,
+      ),
     );
   }
 }
@@ -97,7 +141,6 @@ class RealtimeChartlist extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 1000,
       color: Colors.black,
       alignment: Alignment.center,
       //child: horiScroll(), //나중에 가로스크롤 파일 추가
@@ -119,6 +162,33 @@ class miniTabs extends StatelessWidget {
       child: Text(
         label,
         style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),
+      ),
+    );
+  }
+}
+
+class RealtimeCharText extends StatelessWidget {
+  const RealtimeCharText({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(
+        bottom: 12.0,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: const [
+          SizedBox(
+            width: 15.0,
+          ),
+          Text(
+            "실시간 차트",
+            style: TextStyle(color: Color(0xFFFEFEFF), fontSize: 20),
+          ),
+        ],
       ),
     );
   }
