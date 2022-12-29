@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:toss_assemble/components/constants.dart';
 import 'package:flutter/widgets.dart';
 
 class CurrentMoney extends StatelessWidget {
   final double currentMoney;
   final String currentProfit;
-
-  const CurrentMoney({required this.currentMoney, required this.currentProfit});
+  final f = NumberFormat('###,###');
+  CurrentMoney({super.key, required this.currentMoney, required this.currentProfit});
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
     return Column(
       children: [
-        Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+        Row(mainAxisAlignment: MainAxisAlignment.start, children: const [
           SizedBox(
-            width: 20.0,
+            width: 10.0,
           ),
           Text(
             '보유 주식',
@@ -27,12 +29,12 @@ class CurrentMoney extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SizedBox(
-              width: 20.0,
+            const SizedBox(
+              width: 10.0,
             ),
             Text(
-              '${currentMoney}원',
-              style: TextStyle(
+              '${f.format(currentMoney)}원',
+              style: const TextStyle(
                 fontSize: 25.0,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
@@ -45,22 +47,28 @@ class CurrentMoney extends StatelessWidget {
               iconSize: 15.0,
             ),
             SizedBox(
-              width: 160.0,
+              width: screenWidth > 500 ? 160.0 : 120.0,
             ),
-            const GoAllMyAsset('내 계좌 보기'),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                color: kContainerColour,
+              ),
+              child: const GoAllAssets('내 계좌 보기'),
+            ),
           ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SizedBox(
-              width: 20.0,
+            const SizedBox(
+              width: 10.0,
             ),
             Text(
               currentProfit,
-              style: const TextStyle(
-                  color: Color(0xFF3E6FB2),
-                  fontSize: 16.0,
+              style: TextStyle(
+                  color: Colors.blue[400],
+                  fontSize: 18.0,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 0.5),
             ),
@@ -71,29 +79,20 @@ class CurrentMoney extends StatelessWidget {
   }
 }
 
-class GoAllMyAsset extends StatelessWidget {
+class GoAllAssets extends StatelessWidget {
   final String name;
-  const GoAllMyAsset(this.name);
+  const GoAllAssets(this.name, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 35.0,
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.0),
-          color: kContainerColour,
-        ),
-        child: TextButton(
-          onPressed: () {},
-          child: Text(
-            name,
-            style: TextStyle(
-              fontSize: 12.0,
-              fontWeight: FontWeight.bold,
-              color: Colors.grey[300],
-            ),
-          ),
+    return TextButton(
+      onPressed: () {},
+      child: Text(
+        name,
+        style: TextStyle(
+          fontSize: 14.0,
+          fontWeight: FontWeight.bold,
+          color: Colors.grey[300],
         ),
       ),
     );
