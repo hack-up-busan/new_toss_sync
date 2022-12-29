@@ -94,7 +94,7 @@ class Docs extends StatelessWidget {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-                children: [
+                children: const [
                   SizedBox(
                     width: 10.0,
                   ),
@@ -105,7 +105,7 @@ class Docs extends StatelessWidget {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-                children: [
+                children: const [
                   SizedBox(
                     width: 20.0,
                   ),
