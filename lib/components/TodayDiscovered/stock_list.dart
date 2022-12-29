@@ -62,7 +62,7 @@ class _pageStock_listState extends State<pageStock_list> {
         return Card(
           color: kRealTimeStockBackgroundColour,
           elevation: 0.0,
-          shape: BeveledRectangleBorder(
+          shape: const BeveledRectangleBorder(
               borderRadius: BorderRadius.zero
           ),
           child: ListTile(
@@ -71,7 +71,7 @@ class _pageStock_listState extends State<pageStock_list> {
               children: [
                 Text(
                   stockData[index].name,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 17.0,
                   ),
@@ -79,7 +79,7 @@ class _pageStock_listState extends State<pageStock_list> {
 
                 Text(
                   stockData[index].addPerson,
-                  style: TextStyle(color: Color(0xFFD1D1E0), fontSize: 13.0),
+                  style: const TextStyle(color: Color(0xFFD1D1E0), fontSize: 13.0),
                 ),
               ],
             ),

@@ -141,7 +141,7 @@ class InvestStock extends StatelessWidget {
           ),
         ),
         subtitle: Text(
-          '${stockNumbers}주',
+          '$stockNumbers주',
           style: TextStyle(
               color: Colors.grey[600],
               fontSize: 14.0,
@@ -154,24 +154,30 @@ class InvestStock extends StatelessWidget {
 
 class HoldStock extends StatelessWidget {
   final double money;
-  const HoldStock(this.money);
+  const HoldStock(this.money, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return const Card(
       child: ListTile(),
     );
   }
 }
 
-class InterestingStockList extends StatelessWidget {
+class InterestingStockList extends StatefulWidget {
   const InterestingStockList({Key? key}) : super(key: key);
 
   @override
+  State<InterestingStockList> createState() => _InterestingStockListState();
+}
+
+class _InterestingStockListState extends State<InterestingStockList> {
+  bool _customTileExpanded = false;
+  @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.fromLTRB(1.0, 15.0, 1.0, 0.0),
-      color: Color(0xFF18171D),
+      padding: const EdgeInsets.fromLTRB(1.0, 15.0, 1.0, 0.0),
+      color: const Color(0xFF18171D),
       child: Column(
         children: [
           ListTile(
@@ -195,23 +201,40 @@ class InterestingStockList extends StatelessWidget {
               ),
             ),
           ),
-          TextButton(
-            onPressed: () {},
-            child: ListTile(
-              leading: Text(
-                '기본',
-                style: TextStyle(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.grey[400],
-                ),
-              ),
-              trailing: Icon(
-                Icons.arrow_downward_rounded,
-                size: 20.0,
-                color: Colors.grey[400],
-              ),
+          ExpansionTile(
+            title: const Text(
+              '기본',
+              style: TextStyle(color: Colors.white),
             ),
+            iconColor: Colors.grey,
+            collapsedIconColor: Colors.grey,
+            children: [
+              const InvestStock(
+                image: 'samsung.png',
+                stockName: '삼성전자',
+                stockNumbers: '1',
+                stockPrice: '1,475',
+                loss: '-60(3.9%)',
+              ),
+
+              Row(
+                children: [
+                  const SizedBox(width: 20,),
+                  CircleAvatar(
+                    backgroundColor: Colors.grey.shade600,
+                    child: const Icon(Icons.add,),
+                  ),
+                  const SizedBox(width: 15),
+                  const Text(
+                    '추가하기',
+                    style: TextStyle(
+                        fontSize: 18,
+                      color: Colors.grey
+                    ),
+                  )
+                ],
+              ),
+            ],
           ),
         ],
       ),
@@ -235,8 +258,8 @@ class DemandStock extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10.0),
                   child: Text(
                     '지금 빠르게 오르고 있는 주식은?',
                     style: TextStyle(
@@ -258,7 +281,7 @@ class DemandStock extends StatelessWidget {
               ],
             ),
           ),
-          Expanded(
+          const Expanded(
             flex: 1,
             child: Icon(
               Icons.factory_rounded,
