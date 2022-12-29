@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:toss_assemble/components/black_divider.dart';
 import 'components/TodayDiscovered/cardbox.dart';
+import 'components/TodayDiscovered/community.dart';
 import 'components/TodayDiscovered/hori_scroll.dart';
 import 'mini_tabbar.dart';
 
@@ -118,6 +119,67 @@ class _todayDiscoverys_testState extends State<todayDiscoverys_test>
                 investor: ['빌게이츠', '워렌버핏', '켄그리핀', '짐사이먼스'],
               ),
             ),
+            BlackDivider(),
+            Container(
+              height: 300,
+              decoration: BoxDecoration(
+                  color: Colors.white
+              ),
+            ),
+            BlackDivider(),
+            Container(
+              height: 300,
+              decoration: BoxDecoration(
+                  color: Colors.white
+              ),
+            ),
+            BlackDivider(),
+            Container(
+              height: 701,
+              //padding: EdgeInsets.only(top: 20, left: 20),
+              child: Column(
+                children: [
+                  Container(
+                    padding: EdgeInsets.only(top: 20, left: 10),
+                    alignment: Alignment.centerLeft,
+                    child: Text("인기 커뮤니티"),
+                    height: 50,
+                  ),
+                  Container(
+                    height: 600,
+                    child: Column(
+                      children: [
+                        list_tile(),
+                        Container(
+                          padding: EdgeInsets.only(left: 60),
+                          child: message_box(),
+                        ),
+                        SizedBox(height: 20),
+                        list_tile(),
+                        Container(
+                          padding: EdgeInsets.only(left: 60),
+                          child: message_box(),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    height: 0.1,
+                    color: Colors.white,
+                  ),
+                  Container(
+                    height: 50,
+                    alignment: Alignment.center,
+                    child: Text("다른 커뮤니티 보기"),
+                  ),
+                ],
+              ),
+              //인기커뮤니티
+            ),
+            BlackDivider(),
+            Container(
+              height: 100,
+            ),
           ],
         ),
       ],
@@ -216,6 +278,7 @@ class _todayDiscoverys_testState extends State<todayDiscoverys_test>
 //             ),
 //           ],
 //         ),
+
 //       ),
 //     );
 //   }
