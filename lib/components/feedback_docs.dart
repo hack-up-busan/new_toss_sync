@@ -7,7 +7,7 @@ class SendOpinion extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.black,
-      padding: EdgeInsets.fromLTRB(0.0, 15.0, 5.0, 5.0),
+      padding: const EdgeInsets.fromLTRB(0.0, 15.0, 5.0, 5.0),
       child: ListTile(
         onTap: () {},
         leading: Icon(
@@ -50,14 +50,14 @@ class Docs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 10.0),
+      padding: const EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 10.0),
       color: Colors.black,
       child: Column(
         children: [
           Row(
             children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(10.0, 1.0, 3.0, 0.0),
+              const Padding(
+                padding: EdgeInsets.fromLTRB(10.0, 1.0, 3.0, 0.0),
                 child: CircleAvatar(
                     radius: 10.0,
                     backgroundImage: AssetImage('assets/images/toss.png')),
@@ -115,6 +115,56 @@ class Docs extends StatelessWidget {
               ),
             ],
           ),
+          ExpansionTile(
+            title: Text(
+                '꼭 알아두세요',
+                style: TextStyle(
+                  color: Colors.grey[500],
+                  fontSize: 19,
+                ),
+              ),
+            iconColor: Colors.grey[600],
+            collapsedIconColor: Colors.grey,
+            children: [
+              ListTile(
+                title: Text(
+                  ' \u2022 당사는 금융투자상품에 관하여 충분히 설명할 의무가 있으며, 투자자는 투자에 앞서 당사의 설명을 들으시기 바랍니다.',
+                  style: TextStyle(
+                      color: Colors.grey[600],
+                    fontSize: 15,
+                  ),
+                ),
+              ),
+              ListTile(
+                title: Text(
+                  ' \u2022 금융투자상품은 예금자보호법에 따라 예금보험공사가 보호하지 않습니다.',
+                  style: TextStyle(
+                    color: Colors.grey[600],
+                    fontSize: 15,
+                  ),
+                ),
+              ),
+              ListTile(
+                title: Text(
+                  ' \u2022 금융투자상품은 원금손실이 발생할 수 있으며, 그 손실은 투자자에게 귀속됩니다.',
+                  style: TextStyle(
+                    color: Colors.grey[600],
+                    fontSize: 15,
+                  ),
+                ),
+              ),
+              ListTile(
+                title: Text(
+                  ' \u2022 국내주식거래수수료는 0.015%이며, 기타 수수료에 관한사항은 홈페이지 등을 참조하시기 바랍니다.',
+                  style: TextStyle(
+                    color: Colors.grey[600],
+                    fontSize: 15,
+                  ),
+                ),
+              ),
+            ],
+          )
+
         ],
       ),
     );
@@ -123,11 +173,11 @@ class Docs extends StatelessWidget {
 
 class CautiousInfo extends StatelessWidget {
   final String info;
-  const CautiousInfo(this.info);
+  const CautiousInfo(this.info, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 20.0,
       child: TextButton(
         style: TextButton.styleFrom(
@@ -136,9 +186,9 @@ class CautiousInfo extends StatelessWidget {
         child: Text(
           info,
           style: TextStyle(
-            fontSize: 10.0,
+            fontSize: 11.0,
             fontWeight: FontWeight.bold,
-            color: Colors.grey[700],
+            color: Colors.grey[600],
           ),
         ),
       ),
