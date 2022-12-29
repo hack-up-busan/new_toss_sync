@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:toss_assemble/components/constants.dart';
 import 'package:flutter/widgets.dart';
 
 class CurrentMoney extends StatelessWidget {
   final double currentMoney;
   final String currentProfit;
-
-  const CurrentMoney({required this.currentMoney, required this.currentProfit});
+  final f = NumberFormat('###,###');
+  CurrentMoney({super.key, required this.currentMoney, required this.currentProfit});
 
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     return Column(
       children: [
-        Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+        Row(mainAxisAlignment: MainAxisAlignment.start, children: const [
           SizedBox(
             width: 10.0,
           ),
@@ -28,12 +29,12 @@ class CurrentMoney extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SizedBox(
+            const SizedBox(
               width: 10.0,
             ),
             Text(
-              '${currentMoney}원',
-              style: TextStyle(
+              '${f.format(currentMoney)}원',
+              style: const TextStyle(
                 fontSize: 25.0,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
@@ -53,14 +54,14 @@ class CurrentMoney extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10.0),
                 color: kContainerColour,
               ),
-              child: GoAllaseets('내 계좌 보기'),
+              child: const GoAllAssets('내 계좌 보기'),
             ),
           ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SizedBox(
+            const SizedBox(
               width: 10.0,
             ),
             Text(
@@ -78,9 +79,9 @@ class CurrentMoney extends StatelessWidget {
   }
 }
 
-class GoAllaseets extends StatelessWidget {
+class GoAllAssets extends StatelessWidget {
   final String name;
-  GoAllaseets(this.name);
+  const GoAllAssets(this.name, {super.key});
 
   @override
   Widget build(BuildContext context) {
