@@ -4,6 +4,7 @@ import 'components/TodayDiscovered/cardbox.dart';
 import 'components/TodayDiscovered/community.dart';
 import 'components/TodayDiscovered/hori_scroll.dart';
 import 'mini_tabbar.dart';
+import 'package:toss_assemble/components/TodayDiscovered/following_buy.dart';
 
 class todayDiscoverys_test extends StatefulWidget {
   @override
@@ -77,44 +78,12 @@ class _todayDiscoverys_testState extends State<todayDiscoverys_test>
             SizedBox(
               height: 15.0,
             ),
-            Row(
-              children: [
-                SizedBox(
-                  width: 10.0,
-                ),
-                Container(
-                  padding: EdgeInsets.all(8.0),
-                  child: Column(
-                    children: const [
-                      Text(
-                        '주식천재 따라사기',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFFFEFEFF),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 5.0,
-                      ),
-                      Text(
-                        '먼저 부자가 된 그들의 선택은?',
-                        style: TextStyle(
-                          fontSize: 12.0,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFF9E9DA3),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+            const FollowBuyContents(),
             SizedBox(
               height: 20.0,
             ),
             Container(
-              height: 300,
+              height: 180,
               child: HoriScroll(
                 investor: ['빌게이츠', '워렌버핏', '켄그리핀', '짐사이먼스'],
               ),
@@ -122,16 +91,12 @@ class _todayDiscoverys_testState extends State<todayDiscoverys_test>
             BlackDivider(),
             Container(
               height: 300,
-              decoration: BoxDecoration(
-                  color: Colors.white
-              ),
+              decoration: BoxDecoration(color: Colors.white),
             ),
             BlackDivider(),
             Container(
               height: 300,
-              decoration: BoxDecoration(
-                  color: Colors.white
-              ),
+              decoration: BoxDecoration(color: Colors.white),
             ),
             BlackDivider(),
             Container(
