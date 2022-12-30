@@ -116,6 +116,7 @@ class Docs extends StatelessWidget {
             ],
           ),
           ExpansionTile(
+
             title: Text(
                 '꼭 알아두세요',
                 style: TextStyle(
