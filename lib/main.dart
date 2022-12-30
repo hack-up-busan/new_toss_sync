@@ -117,15 +117,16 @@ class _StockPageState extends State<StockPage>
         },
         body: TabBarView(
           // These are the contents of the tab views, below the tabs.
-          children: <Widget>[
-            MyStocks(),
-            todayDiscoverys_test(),
-          ],
           controller: _tabController,
+          // These are the contents of the tab views, below the tabs.
+          children: <Widget>[
+            const MyStocks(),
+            TodayDiscoveryTest(),
+          ],
         ),
       ),
-      bottomNavigationBar: ClipRRect(
-        borderRadius: const BorderRadius.only(
+      bottomNavigationBar: const ClipRRect(
+        borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20.0), topRight: Radius.circular(20.0)),
         child: BottomNavigaitionBars(),
       ),
