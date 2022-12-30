@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toss_assemble/components/black_divider.dart';
+import 'components/ListTile.dart';
 import 'components/TodayDiscovered/cardbox.dart';
 import 'components/TodayDiscovered/community.dart';
 import 'components/TodayDiscovered/hori_scroll.dart';
@@ -32,6 +33,7 @@ class _todayDiscoverys_testState extends State<todayDiscoverys_test>
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
     List<Widget> labels = [];
     for (int i = 0; i <= 50; i++) {
       labels.add(Text(i.toString()));
@@ -90,13 +92,101 @@ class _todayDiscoverys_testState extends State<todayDiscoverys_test>
             ),
             BlackDivider(),
             Container(
-              height: 300,
-              decoration: BoxDecoration(color: Colors.white),
+              height: screenHeight / 2,
+              child: Column(
+                children: [
+                  Container(
+                    padding: EdgeInsets.only(left: 15),
+                    alignment: Alignment.centerLeft,
+                    child: Text('''1주만 사도
+적금 이자처럼 배당받는 주식''',
+                    style: TextStyle(
+                        fontSize: 20
+                    ),
+                    ),
+                    height: screenHeight / 8,
+                  ),
+                  Expanded(
+                      child: Column(
+                        children: [
+                          tile_arrowIcon(
+                            nickname: "빌게이츠",
+                            word: "연 3.17%",
+                            img: "빌게이츠",
+                          ),
+                          tile_arrowIcon(
+                            nickname: "LG전자",
+                            word: "연 4.57%",
+                            img: "LG전자",
+                          ),
+                          tile_arrowIcon(
+                            nickname: "테슬라",
+                            word: "연 3.17%",
+                            img: "tesla",
+                          ),
+                        ],
+                      ),
+                  ),
+                  Container(
+                    height: 0.1,
+                    color: Colors.white,
+                  ),
+                  Container(
+                    height: screenHeight / 16,
+                    alignment: Alignment.center,
+                    child: Text("더보기"),
+                  ),
+                ],
+              ),
             ),
             BlackDivider(),
             Container(
-              height: 300,
-              decoration: BoxDecoration(color: Colors.white),
+              height: screenHeight / 2,
+              child: Column(
+                children: [
+                  Container(
+                    padding: EdgeInsets.only(left: 15),
+                    alignment: Alignment.centerLeft,
+                    child: Text("알아두면 쓸모있는 주식 정보",
+                      style: TextStyle(
+                          fontSize: 20
+                      ),
+                    ),
+                    height: screenHeight / 8,
+                  ),
+                  Expanded(
+                    child: Column(
+                      children: [
+                        tile_arrowIcon(
+                          nickname: "2022 토스증권 주식대상",
+                          word: "32894명 봤어요",
+                          img: "트로피",
+                        ),
+                        tile_arrowIcon(
+                          nickname: '''테슬라 주가가 또 8% 넘게
+떨어졌어요''',
+                          word: "20374명 봤어요",
+                          img: "자동차",
+                        ),
+                        tile_arrowIcon(
+                          nickname: "해운사와 항공사, 동반 상승",
+                          word: "32920명 봤어요",
+                          img: "비행기",
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    height: 0.1,
+                    color: Colors.white,
+                  ),
+                  Container(
+                    height: screenHeight / 16,
+                    alignment: Alignment.center,
+                    child: Text("더보기"),
+                  ),
+                ],
+              ),
             ),
             BlackDivider(),
             Container(
@@ -105,9 +195,13 @@ class _todayDiscoverys_testState extends State<todayDiscoverys_test>
               child: Column(
                 children: [
                   Container(
-                    padding: EdgeInsets.only(top: 20, left: 10),
+                    padding: EdgeInsets.only(top: 20, left: 15),
                     alignment: Alignment.centerLeft,
-                    child: Text("인기 커뮤니티"),
+                    child: Text("인기 커뮤니티",
+                    style: TextStyle(
+                      fontSize: 20
+                    ),
+                    ),
                     height: 50,
                   ),
                   Container(
@@ -139,7 +233,6 @@ class _todayDiscoverys_testState extends State<todayDiscoverys_test>
                   ),
                 ],
               ),
-              //인기커뮤니티
             ),
             BlackDivider(),
             Container(
@@ -148,12 +241,11 @@ class _todayDiscoverys_testState extends State<todayDiscoverys_test>
           ],
         ),
       ],
-      //color: Colors.black,
-      //alignment: Alignment.center,
     );
-    //스크롤
   }
 }
+
+
 
 // class TabPage extends StatefulWidget {
 //   const TabPage({Key? key}) : super(key: key);

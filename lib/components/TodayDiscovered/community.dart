@@ -46,9 +46,11 @@ class _message_boxState extends State<message_box> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return Container(
       constraints: BoxConstraints(
         maxWidth: screenWidth * 0.75, //전체 스크린 크기의 0.75배가 최대 크기
+        maxHeight: screenHeight / 4 //메시지가 길어져도 오버플로우 발생X ->메시지가 잘리는건 해결못함
       ),
       //margin: EdgeInsets.only(right: 20),
       padding: EdgeInsets.all(20),
@@ -64,7 +66,7 @@ class _message_boxState extends State<message_box> {
         ],
       ),
       child: Text(
-        '메세지 내용이 늘어나면 박스크기도 늘어나는데 세로는 무한정늘어나다가 오버플로우 발생 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+        '메세지 내용이 늘어나면 박스크기도 늘어나는데 세로는 무한정늘어나다가 오버플로우 발생 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa메세지 내용이 늘어나면 박스크기도 늘어나는데 세로는 무한정늘어나다가 오버플로우 발생 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1',
         style: TextStyle(
           fontSize: 20,
         ),

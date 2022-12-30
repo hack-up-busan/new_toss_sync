@@ -156,12 +156,13 @@ class miniTabs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
     return Container(
       height: 25,
       alignment: Alignment.center,
       child: Text(
         label,
-        style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),
+        style: TextStyle(fontSize: screenWidth * 0.04, fontWeight: FontWeight.bold),
       ),
     );
   }
