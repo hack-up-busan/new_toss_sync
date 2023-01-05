@@ -194,8 +194,8 @@ class _TodayDiscoveryTestState extends State<TodayDiscoveryTest>
                   ],
                 ),
               ),
-              BlackDivider(),
-              Container(
+              const BlackDivider(),
+              SizedBox(
                 height: 701,
                 //padding: EdgeInsets.only(top: 20, left: 20),
                 child: Column(
@@ -210,20 +210,20 @@ class _TodayDiscoveryTestState extends State<TodayDiscoveryTest>
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       height: 600,
                       child: Column(
                         children: [
                           list_tile(),
                           Container(
                             padding: EdgeInsets.only(left: 60),
-                            child: message_box(),
+                            child: MessageBox(),
                           ),
                           SizedBox(height: 20),
                           list_tile(),
                           Container(
                             padding: EdgeInsets.only(left: 60),
-                            child: message_box(),
+                            child: MessageBox(),
                           ),
                         ],
                       ),
@@ -240,7 +240,7 @@ class _TodayDiscoveryTestState extends State<TodayDiscoveryTest>
                   ],
                 ),
               ),
-              BlackDivider(),
+              const BlackDivider(),
               Container(
                 height: 100,
               ),

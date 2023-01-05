@@ -11,13 +11,13 @@ class _list_tileState extends State<list_tile> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: CircleAvatar(
+      leading: const CircleAvatar(
         backgroundImage: AssetImage('assets/images/빌게이츠.png'),
         radius: 24.0,
       ),
-      title: Text(
+      title: const Text(
         'TSLS',
-        style: const TextStyle(
+        style: TextStyle(
           color: Colors.white,
           fontSize: 18.0,
           fontWeight: FontWeight.bold,
@@ -35,14 +35,14 @@ class _list_tileState extends State<list_tile> {
 }
 
 
-class message_box extends StatefulWidget {
-  const message_box({Key? key}) : super(key: key);
+class MessageBox extends StatefulWidget {
+  const MessageBox({Key? key}) : super(key: key);
 
   @override
-  State<message_box> createState() => _message_boxState();
+  State<MessageBox> createState() => _MessageBoxState();
 }
 
-class _message_boxState extends State<message_box> {
+class _MessageBoxState extends State<MessageBox> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -53,11 +53,11 @@ class _message_boxState extends State<message_box> {
         maxHeight: screenHeight / 4 //메시지가 길어져도 오버플로우 발생X ->메시지가 잘리는건 해결못함
       ),
       //margin: EdgeInsets.only(right: 20),
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.grey,
         borderRadius: BorderRadius.circular(10),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Colors.black12,
             blurRadius: 10,
@@ -65,7 +65,7 @@ class _message_boxState extends State<message_box> {
           ),
         ],
       ),
-      child: Text(
+      child: const Text(
         '메세지 내용이 늘어나면 박스크기도 늘어나는데 세로는 무한정늘어나다가 오버플로우 발생 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa메세지 내용이 늘어나면 박스크기도 늘어나는데 세로는 무한정늘어나다가 오버플로우 발생 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1',
         style: TextStyle(
           fontSize: 20,
