@@ -5,6 +5,8 @@ import 'components/TodayDiscovered/community.dart';
 import 'components/TodayDiscovered/hori_scroll.dart';
 import 'mini_tabbar.dart';
 import 'package:toss_assemble/components/TodayDiscovered/following_buy.dart';
+import 'package:toss_assemble/components/feedback_docs.dart';
+import 'package:toss_assemble/components/constants.dart';
 
 class todayDiscoverys_test extends StatefulWidget {
   @override
@@ -44,7 +46,7 @@ class _todayDiscoverys_testState extends State<todayDiscoverys_test>
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 15.0,
             ),
             Row(
@@ -141,10 +143,13 @@ class _todayDiscoverys_testState extends State<todayDiscoverys_test>
               ),
               //인기커뮤니티
             ),
-            BlackDivider(),
-            Container(
-              height: 100,
+            // const BlackDivider(),
+            const SendOpinion(),
+            const Divider(
+              height: 1.0,
+              color: const Color(0xFF18171D),
             ),
+            const Docs(),
           ],
         ),
       ],

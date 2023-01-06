@@ -216,21 +216,21 @@ class _InterestingStockListState extends State<InterestingStockList> {
                 stockPrice: '1,475',
                 loss: '-60(3.9%)',
               ),
-
               Row(
                 children: [
-                  const SizedBox(width: 20,),
+                  const SizedBox(
+                    width: 20,
+                  ),
                   CircleAvatar(
                     backgroundColor: Colors.grey.shade600,
-                    child: const Icon(Icons.add,),
+                    child: const Icon(
+                      Icons.add,
+                    ),
                   ),
                   const SizedBox(width: 15),
                   const Text(
                     '추가하기',
-                    style: TextStyle(
-                        fontSize: 18,
-                      color: Colors.grey
-                    ),
+                    style: TextStyle(fontSize: 18, color: Colors.grey),
                   )
                 ],
               ),
@@ -249,7 +249,7 @@ class DemandStock extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 40.0),
-      color: Color(0xFF18171D),
+      color: const Color(0xFF18171D),
       child: Row(
         children: [
           SizedBox(width: 10.0),

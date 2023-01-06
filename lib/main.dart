@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:toss_assemble/mini_tabbar.dart';
 import 'package:toss_assemble/today_discovery_test.dart';
+import 'components/popup_card.dart';
 import 'screens/search_screen.dart';
 import 'screens/setting_screen.dart';
 import 'screens/calendar_screen.dart';
@@ -13,7 +14,6 @@ import 'components/myStocks/popping_card.dart';
 //import 'tabs.dart';
 import 'components/constants.dart';
 import 'package:toss_assemble/components/tabs.dart';
-import 'package:toss_assemble/models/transaction.dart';
 
 class MyBehavior extends ScrollBehavior {
   @override
@@ -23,7 +23,9 @@ class MyBehavior extends ScrollBehavior {
   }
 }
 
-void main() => runApp(const MyApp());
+void main() => runApp(
+      const MyApp(),
+    );
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -101,10 +103,11 @@ class _StockPageState extends State<StockPage>
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return <Widget>[
             SliverAppBar(
-              title: const FinancialInfo(),
+              title: FinancialInfo(),
               pinned: true,
               expandedHeight: 100.0,
               floating: true,
+              snap: true,
               forceElevated: innerBoxIsScrolled,
               bottom: TabBar(
                 tabs: tabs,

@@ -55,6 +55,8 @@ class _MyStocksState extends State<MyStocks> {
       const SendOpinion(),
       const Divider(
         height: 1.0,
+        color: const Color(0xFF18171D),
+        thickness: 3.0,
       ),
       const Docs(),
     ]);

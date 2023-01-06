@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:popup_card/popup_card.dart';
+import 'package:provider/provider.dart';
+import 'package:toss_assemble/components/constants.dart';
+import 'package:toss_assemble/models/model.dart';
 
 class PoppingCard extends StatelessWidget {
+  final String title;
+  // final VoidCallback removeCard;
+
   const PoppingCard({
-    Key? key,
-  }) : super(key: key);
+    required this.title,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -56,3 +62,22 @@ class PoppingCard extends StatelessWidget {
     );
   }
 }
+
+// class testLisTtile extends StatelessWidget {
+//   final String title;
+//   final VoidCallback removeCard;
+//
+//   testLisTtile({required this.title, required this.removeCard});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return ListTile(
+//       tileColor: kAllThemeColour,
+//       title: Text(title),
+//       trailing: IconButton(
+//         onPressed: removeCard,
+//         icon: Icon(Icons.delete),
+//       ),
+//     );
+//   }
+// }
