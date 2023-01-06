@@ -116,17 +116,17 @@ class _TodayDiscoveryTestState extends State<TodayDiscoveryTest>
                     Expanded(
                       child: Column(
                         children: [
-                          tile_arrowIcon(
+                          TileArrowIcon(
                             nickname: "빌게이츠",
                             word: "연 3.17%",
                             img: "빌게이츠",
                           ),
-                          tile_arrowIcon(
+                          TileArrowIcon(
                             nickname: "LG전자",
                             word: "연 4.57%",
                             img: "LG전자",
                           ),
-                          tile_arrowIcon(
+                          TileArrowIcon(
                             nickname: "테슬라",
                             word: "연 3.17%",
                             img: "tesla",
@@ -163,18 +163,18 @@ class _TodayDiscoveryTestState extends State<TodayDiscoveryTest>
                     Expanded(
                       child: Column(
                         children: const [
-                          tile_arrowIcon(
+                          TileArrowIcon(
                             nickname: "2022 토스증권 주식대상",
                             word: "32894명 봤어요",
                             img: "트로피",
                           ),
-                          tile_arrowIcon(
+                          TileArrowIcon(
                             nickname: '''테슬라 주가가 또 8% 넘게
 떨어졌어요''',
                             word: "20374명 봤어요",
                             img: "자동차",
                           ),
-                          tile_arrowIcon(
+                          TileArrowIcon(
                             nickname: "해운사와 항공사, 동반 상승",
                             word: "32920명 봤어요",
                             img: "비행기",

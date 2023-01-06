@@ -81,7 +81,9 @@ class _StockPageState extends State<StockPage>
   @override
   Widget build(BuildContext context) {
     final appbar = AppBar(
-      actionsIconTheme: IconThemeData(color: Colors.grey[800]),
+      actionsIconTheme: IconThemeData(
+        color: Colors.grey[800],
+      ),
       title: Opacity(
         opacity: _scrollPosition > 50 ? 1 : 0,
         child: Row(
@@ -89,9 +91,10 @@ class _StockPageState extends State<StockPage>
             Text(
               '코스피',
               style: TextStyle(
-                  fontSize: 14.0,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.grey[600]),
+                fontSize: 14.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.grey[600],
+              ),
             ),
             const SizedBox(
               width: 5.0,

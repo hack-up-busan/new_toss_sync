@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
-class tile_arrowIcon extends StatelessWidget {
-  const tile_arrowIcon({Key? key, required this.nickname, required this.word, required this.img}) : super(key: key);
+class TileArrowIcon extends StatelessWidget {
+  const TileArrowIcon(
+      {Key? key, required this.nickname, required this.word, required this.img})
+      : super(key: key);
   final String nickname;
   final String word;
   final String img;
@@ -18,7 +20,7 @@ class tile_arrowIcon extends StatelessWidget {
         iconSize: 13,
         color: Colors.grey[600],
         icon: Icon(Icons.arrow_forward_ios_rounded),
-        onPressed: () { },
+        onPressed: () {},
       ),
       title: Text(
         nickname,
