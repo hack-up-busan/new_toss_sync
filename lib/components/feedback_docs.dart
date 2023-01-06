@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'constants.dart';
 
 class SendOpinion extends StatelessWidget {
   const SendOpinion({Key? key}) : super(key: key);
@@ -6,7 +7,7 @@ class SendOpinion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.black,
+      color: kBottomContainerColour,
       padding: const EdgeInsets.fromLTRB(0.0, 15.0, 5.0, 5.0),
       child: ListTile(
         onTap: () {},
@@ -51,7 +52,7 @@ class Docs extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 10.0),
-      color: Colors.black,
+      color: kBottomContainerColour,
       child: Column(
         children: [
           Row(
@@ -65,7 +66,7 @@ class Docs extends StatelessWidget {
               Text(
                 '토스증권',
                 style: TextStyle(
-                    color: Colors.grey[700],
+                    color: kBottomContainerTextColour,
                     fontSize: 17.0,
                     fontWeight: FontWeight.bold),
               ),
@@ -79,11 +80,15 @@ class Docs extends StatelessWidget {
             children: [
               Text(
                 '토스증권에서 제공하는 투자 정보는 고객의 투자 판단을 위해 단순',
-                style: TextStyle(color: Colors.grey[800], fontSize: 12.0),
+                style: TextStyle(
+                  color: kBottomContainerTextColour,
+                  fontSize: 12.0,
+                ),
               ),
               Text(
                 '참고용일뿐, 투자 제안 및 권유 종목 추천을 위해 작성된 것이 아닙니다.',
-                style: TextStyle(color: Colors.grey[800], fontSize: 12.0),
+                style: TextStyle(
+                    color: kBottomContainerTextColour, fontSize: 12.0),
               ),
             ],
           ),
@@ -116,57 +121,43 @@ class Docs extends StatelessWidget {
             ],
           ),
           ExpansionTile(
-
-            title: Text(
-                '꼭 알아두세요',
-                style: TextStyle(
-                  color: Colors.grey[500],
-                  fontSize: 19,
-                ),
-              ),
+            title: kNoticeText,
             iconColor: Colors.grey[600],
             collapsedIconColor: Colors.grey,
-            children: [
-              ListTile(
-                title: Text(
-                  ' \u2022 당사는 금융투자상품에 관하여 충분히 설명할 의무가 있으며, 투자자는 투자에 앞서 당사의 설명을 들으시기 바랍니다.',
-                  style: TextStyle(
-                      color: Colors.grey[600],
-                    fontSize: 15,
-                  ),
-                ),
+            children: const [
+              NoticeTile(
+                inFo:
+                    ' \u2022 당사는 금융투자상품에 관하여 충분히 설명할 의무가 있으며, 투자자는 투자에 앞서 당사의 설명을 들으시기 바랍니다.',
               ),
-              ListTile(
-                title: Text(
-                  ' \u2022 금융투자상품은 예금자보호법에 따라 예금보험공사가 보호하지 않습니다.',
-                  style: TextStyle(
-                    color: Colors.grey[600],
-                    fontSize: 15,
-                  ),
-                ),
+              NoticeTile(
+                inFo: ' \u2022 금융투자상품은 예금자보호법에 따라 예금보험공사가 보호하지 않습니다.',
               ),
-              ListTile(
-                title: Text(
-                  ' \u2022 금융투자상품은 원금손실이 발생할 수 있으며, 그 손실은 투자자에게 귀속됩니다.',
-                  style: TextStyle(
-                    color: Colors.grey[600],
-                    fontSize: 15,
-                  ),
-                ),
+              NoticeTile(
+                inFo: ' \u2022 금융투자상품은 원금손실이 발생할 수 있으며, 그 손실은 투자자에게 귀속됩니다.',
               ),
-              ListTile(
-                title: Text(
-                  ' \u2022 국내주식거래수수료는 0.015%이며, 기타 수수료에 관한사항은 홈페이지 등을 참조하시기 바랍니다.',
-                  style: TextStyle(
-                    color: Colors.grey[600],
-                    fontSize: 15,
-                  ),
-                ),
+              NoticeTile(
+                inFo:
+                    ' \u2022 국내주식거래수수료는 0.015%이며, 기타 수수료에 관한사항은 홈페이지 등을 참조하시기 바랍니다.',
               ),
             ],
-          )
-
+          ),
         ],
+      ),
+    );
+  }
+}
+
+class NoticeTile extends StatelessWidget {
+  final String inFo;
+
+  const NoticeTile({super.key, required this.inFo});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Text(
+        inFo,
+        style: kNoticeTileTextStyle,
       ),
     );
   }
@@ -182,14 +173,15 @@ class CautiousInfo extends StatelessWidget {
       height: 20.0,
       child: TextButton(
         style: TextButton.styleFrom(
-            backgroundColor: Colors.black, padding: EdgeInsets.all(3.0)),
+          padding: const EdgeInsets.all(3.0),
+        ),
         onPressed: () {},
         child: Text(
           info,
           style: TextStyle(
             fontSize: 11.0,
             fontWeight: FontWeight.bold,
-            color: Colors.grey[600],
+            color: kBottomContainerTextColour,
           ),
         ),
       ),

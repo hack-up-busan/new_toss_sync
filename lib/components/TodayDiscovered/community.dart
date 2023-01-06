@@ -35,14 +35,14 @@ class _list_tileState extends State<list_tile> {
 }
 
 
-class MessageBox extends StatefulWidget {
-  const MessageBox({Key? key}) : super(key: key);
+class message_box extends StatefulWidget {
+  const message_box({Key? key}) : super(key: key);
 
   @override
-  State<MessageBox> createState() => _MessageBoxState();
+  State<message_box> createState() => _message_boxState();
 }
 
-class _MessageBoxState extends State<MessageBox> {
+class _message_boxState extends State<message_box> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;

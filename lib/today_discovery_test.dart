@@ -6,6 +6,8 @@ import 'components/TodayDiscovered/community.dart';
 import 'components/TodayDiscovered/hori_scroll.dart';
 import 'mini_tabbar.dart';
 import 'package:toss_assemble/components/TodayDiscovered/following_buy.dart';
+import 'package:toss_assemble/components/feedback_docs.dart';
+import 'package:toss_assemble/components/constants.dart';
 
 class TodayDiscoveryTest extends StatefulWidget {
   const TodayDiscoveryTest({super.key});
@@ -42,7 +44,7 @@ class _TodayDiscoveryTestState extends State<TodayDiscoveryTest>
     }
 
     return RefreshIndicator(
-      onRefresh: (){
+      onRefresh: () {
         return Future(() => null);
       },
       child: ListView(
@@ -104,34 +106,33 @@ class _TodayDiscoveryTestState extends State<TodayDiscoveryTest>
                     Container(
                       padding: EdgeInsets.only(left: 15),
                       alignment: Alignment.centerLeft,
-                      child: Text('''1주만 사도
+                      child: Text(
+                        '''1주만 사도
 적금 이자처럼 배당받는 주식''',
-                      style: TextStyle(
-                          fontSize: 20
-                      ),
+                        style: TextStyle(fontSize: 20),
                       ),
                       height: screenHeight / 8,
                     ),
                     Expanded(
-                        child: Column(
-                          children: [
-                            tile_arrowIcon(
-                              nickname: "빌게이츠",
-                              word: "연 3.17%",
-                              img: "빌게이츠",
-                            ),
-                            tile_arrowIcon(
-                              nickname: "LG전자",
-                              word: "연 4.57%",
-                              img: "LG전자",
-                            ),
-                            tile_arrowIcon(
-                              nickname: "테슬라",
-                              word: "연 3.17%",
-                              img: "tesla",
-                            ),
-                          ],
-                        ),
+                      child: Column(
+                        children: [
+                          tile_arrowIcon(
+                            nickname: "빌게이츠",
+                            word: "연 3.17%",
+                            img: "빌게이츠",
+                          ),
+                          tile_arrowIcon(
+                            nickname: "LG전자",
+                            word: "연 4.57%",
+                            img: "LG전자",
+                          ),
+                          tile_arrowIcon(
+                            nickname: "테슬라",
+                            word: "연 3.17%",
+                            img: "tesla",
+                          ),
+                        ],
+                      ),
                     ),
                     Container(
                       height: 0.1,
@@ -153,10 +154,9 @@ class _TodayDiscoveryTestState extends State<TodayDiscoveryTest>
                     Container(
                       padding: EdgeInsets.only(left: 15),
                       alignment: Alignment.centerLeft,
-                      child: Text("알아두면 쓸모있는 주식 정보",
-                        style: TextStyle(
-                            fontSize: 20
-                        ),
+                      child: Text(
+                        "알아두면 쓸모있는 주식 정보",
+                        style: TextStyle(fontSize: 20),
                       ),
                       height: screenHeight / 8,
                     ),
@@ -194,8 +194,8 @@ class _TodayDiscoveryTestState extends State<TodayDiscoveryTest>
                   ],
                 ),
               ),
-              const BlackDivider(),
-              SizedBox(
+              BlackDivider(),
+              Container(
                 height: 701,
                 //padding: EdgeInsets.only(top: 20, left: 20),
                 child: Column(
@@ -204,26 +204,25 @@ class _TodayDiscoveryTestState extends State<TodayDiscoveryTest>
                       padding: EdgeInsets.only(top: 20, left: 15),
                       alignment: Alignment.centerLeft,
                       height: 50,
-                      child: const Text("인기 커뮤니티",
-                        style: TextStyle(
-                          fontSize: 20
-                        ),
+                      child: const Text(
+                        "인기 커뮤니티",
+                        style: TextStyle(fontSize: 20),
                       ),
                     ),
-                    SizedBox(
+                    Container(
                       height: 600,
                       child: Column(
                         children: [
                           list_tile(),
                           Container(
                             padding: EdgeInsets.only(left: 60),
-                            child: MessageBox(),
+                            child: message_box(),
                           ),
                           SizedBox(height: 20),
                           list_tile(),
                           Container(
                             padding: EdgeInsets.only(left: 60),
-                            child: MessageBox(),
+                            child: message_box(),
                           ),
                         ],
                       ),
@@ -240,10 +239,13 @@ class _TodayDiscoveryTestState extends State<TodayDiscoveryTest>
                   ],
                 ),
               ),
-              const BlackDivider(),
-              Container(
-                height: 100,
+              BlackDivider(),
+              const SendOpinion(),
+              const Divider(
+                height: 1.0,
+                color: const Color(0xFF18171D),
               ),
+              const Docs(),
             ],
           ),
         ],
@@ -251,8 +253,6 @@ class _TodayDiscoveryTestState extends State<TodayDiscoveryTest>
     );
   }
 }
-
-
 
 // class TabPage extends StatefulWidget {
 //   const TabPage({Key? key}) : super(key: key);
