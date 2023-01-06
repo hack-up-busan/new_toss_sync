@@ -60,6 +60,7 @@ class StockPage extends StatefulWidget {
 
 class _StockPageState extends State<StockPage>
     with SingleTickerProviderStateMixin {
+  double _scrollPosition = 0;
   late TabController _tabController;
   late ScrollController _scrollController;
 
@@ -81,6 +82,30 @@ class _StockPageState extends State<StockPage>
   Widget build(BuildContext context) {
     final appbar = AppBar(
       actionsIconTheme: IconThemeData(color: Colors.grey[800]),
+      title: Opacity(
+        opacity: _scrollPosition > 50 ? 1 : 0,
+        child: Row(
+          children: [
+            Text(
+              '코스피',
+              style: TextStyle(
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey[600]),
+            ),
+            const SizedBox(
+              width: 5.0,
+            ),
+            Text(
+              '2,204.82',
+              style: TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blue[800]),
+            ),
+          ],
+        ),
+      ),
       actions: const [
         AppBarIcons(
           routeNames: '/search_screen',
@@ -96,33 +121,41 @@ class _StockPageState extends State<StockPage>
 
     return Scaffold(
       appBar: appbar,
-      body: NestedScrollView(
-        controller: _scrollController,
-        headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-          return <Widget>[
-            SliverAppBar(
-              title: const FinancialInfo(),
-              pinned: true,
-              expandedHeight: 100.0,
-              floating: true,
-              forceElevated: innerBoxIsScrolled,
-              bottom: TabBar(
-                tabs: tabs,
-                indicatorColor: Colors.white,
-                indicatorWeight: 1.5,
-                controller: _tabController,
-              ),
-            ),
-          ];
+      body: NotificationListener<ScrollNotification>(
+        onNotification: (ScrollNotification notification) {
+          setState(() {
+            _scrollPosition = notification.metrics.pixels;
+          });
+          return true;
         },
-        body: TabBarView(
-          // These are the contents of the tab views, below the tabs.
-          controller: _tabController,
-          // These are the contents of the tab views, below the tabs.
-          children: <Widget>[
-            const MyStocks(),
-            TodayDiscoveryTest(),
-          ],
+        child: NestedScrollView(
+          controller: _scrollController,
+          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+            return <Widget>[
+              SliverAppBar(
+                title: const FinancialInfo(),
+                pinned: true,
+                expandedHeight: 100.0,
+                floating: true,
+                forceElevated: innerBoxIsScrolled,
+                bottom: TabBar(
+                  tabs: tabs,
+                  indicatorColor: Colors.white,
+                  indicatorWeight: 1.5,
+                  controller: _tabController,
+                ),
+              ),
+            ];
+          },
+          body: TabBarView(
+            // These are the contents of the tab views, below the tabs.
+            controller: _tabController,
+            // These are the contents of the tab views, below the tabs.
+            children: <Widget>[
+              const MyStocks(),
+              TodayDiscoveryTest(),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: const ClipRRect(
