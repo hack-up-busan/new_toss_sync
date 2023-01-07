@@ -29,7 +29,7 @@ class SearchBtn extends StatelessWidget {
             sort: (a, b) => a.compareTo(b),
             builder: (stock) => ListTile(
               title: Text(stock.stockName),
-              leading: Text('${stock.rank}'),
+              leading: Text('+${stock.rank}'),
               trailing: Text('${stock.rate}'),
             ),
           ),
