@@ -39,6 +39,7 @@ class SearchBtn extends StatelessWidget {
         Icons.search,
         size: 35.0,
       ),
+
     );
   }
 }
@@ -84,6 +85,9 @@ class PreferredStockList extends StatelessWidget {
           ),
         );
       },
+
+      body: const Text('내용'),
+
     );
   }
 }
