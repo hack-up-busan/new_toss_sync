@@ -6,6 +6,8 @@ Color kAllThemeColour = const Color(0xFF18171D);
 Color kContainerColour = const Color(0xFF2C2C36);
 Color kBottomContainerColour = const Color(0xFF101012);
 Color kBottomContainerTextColour = const Color(0xFF9C9BA0);
+Color kStockRatePlusColour = const Color(0xFFBB5B67);
+Color kStockRateMinusColour = const Color(0xFF4467A9);
 TextStyle kBoundaryTextStyle = const TextStyle(
   fontSize: 16.0,
   fontWeight: FontWeight.bold,

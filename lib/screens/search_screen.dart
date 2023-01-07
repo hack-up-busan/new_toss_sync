@@ -1,10 +1,13 @@
-// ignore: implementation_imports
-
 import 'package:flutter/material.dart';
+import '../components/constants.dart';
+import 'package:search_page/search_page.dart';
+import '../models/search_screen_stock_list.dart';
 
-class SearchScreen extends StatelessWidget {
-  final String title;
-  SearchScreen(@required this.title);
+class SearchBtn extends StatelessWidget {
+  const SearchBtn({
+    Key? key,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return IconButton(
