@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:toss_assemble/mini_tabbar.dart';
 import 'package:toss_assemble/today_discovery_test.dart';
 import 'screens/search_screen.dart';
 import 'screens/setting_screen.dart';
 import 'screens/calendar_screen.dart';
-import 'models/transaction_list.dart';
-//import 'screens/today_discovery.dart';
 import 'screens/mystock.dart';
 import 'appbar_icon.dart';
 import 'battom_navigationbar.dart';
-import 'components/myStocks/popping_card.dart';
-//import 'tabs.dart';
 import 'components/constants.dart';
 import 'package:toss_assemble/components/tabs.dart';
-import 'package:toss_assemble/models/transaction.dart';
 
 class MyBehavior extends ScrollBehavior {
   @override
@@ -30,24 +24,28 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        textTheme: const TextTheme(
-            bodyText2:
-                TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-        // scaffoldBackgroundColor: const Color.fromARGB(141, 0, 0, 0),
-        scaffoldBackgroundColor: kAllThemeColour,
-        appBarTheme: AppBarTheme(
-          color: kAllThemeColour,
-        ),
-      ),
-      routes: {
-        '/search_screen': (context) => SearchScreen('검색창'),
-        '/settings': (context) => const SettingScreen(),
-        '/calendars': (context) => const CalendarScreen(),
+    return GestureDetector(
+      onTap: () {
+        FocusManager.instance.primaryFocus?.unfocus();
       },
-      home: const StockPage(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          textTheme: const TextTheme(
+              bodyText2:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+          // scaffoldBackgroundColor: const Color.fromARGB(141, 0, 0, 0),
+          scaffoldBackgroundColor: kAllThemeColour,
+          appBarTheme: AppBarTheme(
+            color: kAllThemeColour,
+          ),
+        ),
+        routes: {
+          '/settings': (context) => const SettingScreen(),
+          '/calendars': (context) => const CalendarScreen(),
+        },
+        home: const StockPage(),
+      ),
     );
   }
 }
@@ -81,7 +79,9 @@ class _StockPageState extends State<StockPage>
   @override
   Widget build(BuildContext context) {
     final appbar = AppBar(
-      actionsIconTheme: IconThemeData(color: Colors.grey[800]),
+      actionsIconTheme: IconThemeData(
+        color: Colors.grey[800],
+      ),
       title: Opacity(
         opacity: _scrollPosition > 50 ? 1 : 0,
         child: Row(
@@ -89,9 +89,10 @@ class _StockPageState extends State<StockPage>
             Text(
               '코스피',
               style: TextStyle(
-                  fontSize: 14.0,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.grey[600]),
+                fontSize: 14.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.grey[600],
+              ),
             ),
             const SizedBox(
               width: 5.0,
@@ -107,10 +108,7 @@ class _StockPageState extends State<StockPage>
         ),
       ),
       actions: const [
-        AppBarIcons(
-          routeNames: '/search_screen',
-          icon: Icons.search,
-        ),
+        SearchBtn(),
         AppBarIcons(
           routeNames: '/calendars',
           icon: Icons.check_box,
