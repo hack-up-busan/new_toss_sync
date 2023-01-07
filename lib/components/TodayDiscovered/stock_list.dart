@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import '../../models/model.dart';
 import '../constants.dart';
 
-class PageStockList extends StatefulWidget {
-  const PageStockList({Key? key}) : super(key: key);
+class pageStock_list extends StatefulWidget {
+  const pageStock_list({Key? key}) : super(key: key);
 
   @override
-  State<PageStockList> createState() => _PageStockListState();
+  State<pageStock_list> createState() => _pageStock_listState();
 }
 
-class _PageStockListState extends State<PageStockList> {
+class _pageStock_listState extends State<pageStock_list> {
   static List<String> stockName = [
     //주식이름 리스트 문자열 변수
     '삼성전자', '카카오', 'NAVER', 'SK하이닉스', '현대차', 'LG화학',
@@ -48,14 +48,10 @@ class _PageStockListState extends State<PageStockList> {
   ];*/
 
   final List<Stock> stockData = List.generate(
-    stockName.length,
-    (index) => //길이만큼 오름차순 호출
-        Stock(
-      stockName[index],
-      stockImgPath[index],
-      stockAddPerson[index],
-    ),
-  ); //주식데이터전달
+      stockName.length,
+          (index) => //길이만큼 오름차순 호출
+      Stock(stockName[index], stockImgPath[index],
+          stockAddPerson[index])); //주식데이터전달
   //bool _isLiked = false; // Track the state of the heart icon
   List<bool> _isLiked = List.filled(stockName.length, false);
   @override
@@ -66,7 +62,9 @@ class _PageStockListState extends State<PageStockList> {
         return Card(
           color: kRealTimeStockBackgroundColour,
           elevation: 0.0,
-          shape: const BeveledRectangleBorder(borderRadius: BorderRadius.zero),
+          shape: const BeveledRectangleBorder(
+              borderRadius: BorderRadius.zero
+          ),
           child: ListTile(
             title: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -78,10 +76,10 @@ class _PageStockListState extends State<PageStockList> {
                     fontSize: 17.0,
                   ),
                 ),
+
                 Text(
                   stockData[index].addPerson,
-                  style:
-                      const TextStyle(color: Color(0xFFD1D1E0), fontSize: 13.0),
+                  style: const TextStyle(color: Color(0xFFD1D1E0), fontSize: 13.0),
                 ),
               ],
             ),
@@ -93,13 +91,7 @@ class _PageStockListState extends State<PageStockList> {
             // Modify the heart icon to change between a filled and an empty heart
             // based on the value of _isLiked[index]
             trailing: IconButton(
-
-              icon: _isLiked[index]
-                  ? Icon(Icons.favorite, color: Colors.red)
-                  : Icon(Icons.favorite_border),
-
               icon: _isLiked[index] ? const Icon(Icons.favorite, color: Colors.red) : const Icon(Icons.favorite_border),
-
               onPressed: () {
                 setState(() {
                   _isLiked[index] = !_isLiked[index];
