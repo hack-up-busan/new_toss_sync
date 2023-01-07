@@ -16,13 +16,13 @@ class PoppingCard extends StatelessWidget {
             color: Colors.grey[900],
             borderRadius: BorderRadius.circular(12),
           ),
-          margin: const EdgeInsets.fromLTRB(20.0, 10, 10, 10),
-          padding: const EdgeInsets.all(20.0),
+          margin: EdgeInsets.fromLTRB(20.0, 10, 10, 10),
+          padding: EdgeInsets.all(20.0),
           child: Row(
             children: [
               Container(
-                padding: const EdgeInsets.fromLTRB(0.0, 0, 10, 0),
-                child: const Icon(
+                padding: EdgeInsets.fromLTRB(0.0, 0, 10, 0),
+                child: Icon(
                   Icons.favorite,
                   color: Colors.pink,
                   size: 30.0,
@@ -39,7 +39,7 @@ class PoppingCard extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           fontSize: 15.0),
                     ),
-                    const Text(
+                    Text(
                       '써보기',
                       style: TextStyle(
                           color: Colors.blue,

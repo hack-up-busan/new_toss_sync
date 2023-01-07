@@ -17,7 +17,7 @@ class tile_arrowIcon extends StatelessWidget {
       trailing: IconButton(
         iconSize: 13,
         color: Colors.grey[600],
-        icon: const Icon(Icons.arrow_forward_ios_rounded),
+        icon: Icon(Icons.arrow_forward_ios_rounded),
         onPressed: () { },
       ),
       title: Text(

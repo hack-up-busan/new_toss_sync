@@ -11,13 +11,13 @@ class _list_tileState extends State<list_tile> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: const CircleAvatar(
+      leading: CircleAvatar(
         backgroundImage: AssetImage('assets/images/빌게이츠.png'),
         radius: 24.0,
       ),
-      title: const Text(
+      title: Text(
         'TSLS',
-        style: TextStyle(
+        style: const TextStyle(
           color: Colors.white,
           fontSize: 18.0,
           fontWeight: FontWeight.bold,
@@ -53,11 +53,11 @@ class _message_boxState extends State<message_box> {
         maxHeight: screenHeight / 4 //메시지가 길어져도 오버플로우 발생X ->메시지가 잘리는건 해결못함
       ),
       //margin: EdgeInsets.only(right: 20),
-      padding: const EdgeInsets.all(20),
+      padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.grey,
         borderRadius: BorderRadius.circular(10),
-        boxShadow: const [
+        boxShadow: [
           BoxShadow(
             color: Colors.black12,
             blurRadius: 10,
@@ -65,8 +65,8 @@ class _message_boxState extends State<message_box> {
           ),
         ],
       ),
-      child: const Text(
-        '메세지 내용이 늘어나면 박스크기도 늘어나다가 글자가 잘리는 현상',
+      child: Text(
+        '메세지 내용이 늘어나면 박스크기도 늘어나는데 세로는 무한정늘어나다가 오버플로우 발생 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa메세지 내용이 늘어나면 박스크기도 늘어나는데 세로는 무한정늘어나다가 오버플로우 발생 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1',
         style: TextStyle(
           fontSize: 20,
         ),
