@@ -9,11 +9,11 @@ class FollowBuyContents extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const SizedBox(
+        SizedBox(
           width: 10.0,
         ),
         Container(
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(8.0),
           child: Column(
             children: const [
               Text(

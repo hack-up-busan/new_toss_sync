@@ -151,8 +151,8 @@ class _StockPageState extends State<StockPage>
             // These are the contents of the tab views, below the tabs.
             controller: _tabController,
             // These are the contents of the tab views, below the tabs.
-            children: const <Widget>[
-              MyStocks(),
+            children: <Widget>[
+              const MyStocks(),
               TodayDiscoveryTest(),
             ],
           ),

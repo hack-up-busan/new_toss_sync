@@ -29,14 +29,14 @@ class _miniTabbarState extends State<miniTabbar> with TickerProviderStateMixin {
       children: [
         Container(
           height: 30.0,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             border: Border(
               bottom: BorderSide(color: Colors.grey),
             ),
             color: Color(0xFF18171D),
           ),
           child: TabBar(
-            tabs: const [
+            tabs: [
               miniTabs(
                 label: '거래량',
               ),
@@ -91,7 +91,7 @@ class _RealtimeTabsState extends State<RealtimeTabs> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(color: Colors.grey),
         ),
