@@ -72,7 +72,7 @@ class Docs extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 15.0,
           ),
           Column(
@@ -92,7 +92,7 @@ class Docs extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 15.0,
           ),
           Column(

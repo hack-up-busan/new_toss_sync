@@ -11,7 +11,7 @@ class SearchScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: Text('내용'),
+      body: const Text('내용'),
     );
   }
 }

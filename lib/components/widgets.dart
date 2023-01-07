@@ -11,7 +11,7 @@ class TwotextButton extends StatelessWidget {
     return Expanded(
       child: TextButton(
         style: TextButton.styleFrom(
-            padding: EdgeInsets.symmetric(vertical: 17.0, horizontal: 15.0)),
+            padding: const EdgeInsets.symmetric(vertical: 17.0, horizontal: 15.0)),
         onPressed: () {},
         child: Text(
           name,
@@ -44,7 +44,7 @@ class currentPriceButton extends StatelessWidget {
                 color: Colors.grey[600],
                 size: 22.0,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 4.0,
               ),
               Text(
@@ -54,7 +54,7 @@ class currentPriceButton extends StatelessWidget {
                     fontSize: 16.0,
                     fontWeight: FontWeight.bold),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 9.0,
               )
             ],
@@ -73,14 +73,14 @@ class Nationality extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        SizedBox(
+        const SizedBox(
           width: 20.0,
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 0.0),
           child: Text(
             name,
-            style: TextStyle(
+            style: const TextStyle(
                 color: Colors.white,
                 fontSize: 15.0,
                 fontWeight: FontWeight.bold),
@@ -248,11 +248,11 @@ class DemandStock extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 40.0),
-      color: Color(0xFF18171D),
+      padding: const EdgeInsets.symmetric(vertical: 40.0),
+      color: const Color(0xFF18171D),
       child: Row(
         children: [
-          SizedBox(width: 10.0),
+          const SizedBox(width: 10.0),
           Expanded(
             flex: 4,
             child: Column(
@@ -289,7 +289,7 @@ class DemandStock extends StatelessWidget {
               color: Colors.redAccent,
             ),
           ),
-          SizedBox(width: 20.0),
+          const SizedBox(width: 20.0),
         ],
       ),
     );
