@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../constants.dart';
 
-class cardBox extends StatelessWidget {
-  const cardBox({Key? key}) : super(key: key);
+class CardBox extends StatelessWidget {
+  const CardBox({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -28,9 +28,29 @@ class SearchBtn extends StatelessWidget {
             ],
             sort: (a, b) => a.compareTo(b),
             builder: (stock) => ListTile(
-              title: Text(stock.stockName),
-              leading: Text('+${stock.rank}'),
-              trailing: Text('${stock.rate}'),
+              title: Text(
+                stock.stockName,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18.0,
+                  color: Color(0xFFC0BFC5),
+                ),
+              ),
+              leading: Text(
+                '${stock.rank}',
+                style: const TextStyle(
+                  fontSize: 18.0,
+                  color: Color(0xFF939298),
+                ),
+              ),
+              trailing: Text(
+                stock.rate >= 0.0 ? '+${stock.rate}%' : '${stock.rate}%',
+                style: TextStyle(
+                    fontSize: 17.0,
+                    color: stock.rate >= 0.0
+                        ? kStockRatePlusColour
+                        : kStockRateMinusColour),
+              ),
             ),
           ),
         );
@@ -39,7 +59,6 @@ class SearchBtn extends StatelessWidget {
         Icons.search,
         size: 35.0,
       ),
-
     );
   }
 }
@@ -85,9 +104,6 @@ class PreferredStockList extends StatelessWidget {
           ),
         );
       },
-
-      body: const Text('내용'),
-
     );
   }
 }
