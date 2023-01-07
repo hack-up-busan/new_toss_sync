@@ -115,8 +115,8 @@ class _TodayDiscoveryTestState extends State<TodayDiscoveryTest>
                     ),
                     Expanded(
                       child: Column(
-                        children: [
-                          tile_arrowIcon(
+                        children: const [
+                          TileArrowIcon(
                             nickname: "빌게이츠",
                             word: "연 3.17%",
                             img: "빌게이츠",

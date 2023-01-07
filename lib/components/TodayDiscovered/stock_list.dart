@@ -91,7 +91,9 @@ class _pageStock_listState extends State<pageStock_list> {
             // Modify the heart icon to change between a filled and an empty heart
             // based on the value of _isLiked[index]
             trailing: IconButton(
-              icon: _isLiked[index] ? Icon(Icons.favorite, color: Colors.red) : Icon(Icons.favorite_border),
+              icon: _isLiked[index]
+                  ? const Icon(Icons.favorite, color: Colors.red)
+                  : const Icon(Icons.favorite_border),
               onPressed: () {
                 setState(() {
                   _isLiked[index] = !_isLiked[index];
