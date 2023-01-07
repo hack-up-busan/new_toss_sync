@@ -10,9 +10,9 @@ class SettingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('설정'),
+        title: Text('설정'),
       ),
-      body: const Text('내용'),
+      body: Text('내용'),
     );
   }
 }

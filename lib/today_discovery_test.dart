@@ -54,7 +54,7 @@ class _TodayDiscoveryTestState extends State<TodayDiscoveryTest>
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
+              SizedBox(
                 height: 15.0,
               ),
               Row(
@@ -76,20 +76,20 @@ class _TodayDiscoveryTestState extends State<TodayDiscoveryTest>
                   ),
                 ],
               ),
-              const SizedBox(
+              SizedBox(
                 height: 15.0,
               ),
               const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: RealtimeCharText(),
               ),
-              const miniTabbar(),
-              const BlackDivider(),
-              const SizedBox(
+              miniTabbar(),
+              BlackDivider(),
+              SizedBox(
                 height: 15.0,
               ),
               const FollowBuyContents(),
-              const SizedBox(
+              SizedBox(
                 height: 20.0,
               ),
               const SizedBox(
@@ -98,15 +98,15 @@ class _TodayDiscoveryTestState extends State<TodayDiscoveryTest>
                   investor: ['빌게이츠', '워렌버핏', '켄그리핀', '짐사이먼스'],
                 ),
               ),
-              const BlackDivider(),
+              BlackDivider(),
               SizedBox(
                 height: screenHeight / 2,
                 child: Column(
                   children: [
                     Container(
-                      padding: const EdgeInsets.only(left: 15),
+                      padding: EdgeInsets.only(left: 15),
                       alignment: Alignment.centerLeft,
-                      child: const Text(
+                      child: Text(
                         '''1주만 사도
 적금 이자처럼 배당받는 주식''',
                         style: TextStyle(fontSize: 20),
@@ -121,12 +121,12 @@ class _TodayDiscoveryTestState extends State<TodayDiscoveryTest>
                             word: "연 3.17%",
                             img: "빌게이츠",
                           ),
-                          TileArrowIcon(
+                          tile_arrowIcon(
                             nickname: "LG전자",
                             word: "연 4.57%",
                             img: "LG전자",
                           ),
-                          TileArrowIcon(
+                          tile_arrowIcon(
                             nickname: "테슬라",
                             word: "연 3.17%",
                             img: "tesla",
@@ -141,20 +141,20 @@ class _TodayDiscoveryTestState extends State<TodayDiscoveryTest>
                     Container(
                       height: screenHeight / 16,
                       alignment: Alignment.center,
-                      child: const Text("더보기"),
+                      child: Text("더보기"),
                     ),
                   ],
                 ),
               ),
-              const BlackDivider(),
+              BlackDivider(),
               Container(
                 height: screenHeight / 2,
                 child: Column(
                   children: [
                     Container(
-                      padding: const EdgeInsets.only(left: 15),
+                      padding: EdgeInsets.only(left: 15),
                       alignment: Alignment.centerLeft,
-                      child: const Text(
+                      child: Text(
                         "알아두면 쓸모있는 주식 정보",
                         style: TextStyle(fontSize: 20),
                       ),
@@ -163,18 +163,18 @@ class _TodayDiscoveryTestState extends State<TodayDiscoveryTest>
                     Expanded(
                       child: Column(
                         children: const [
-                          TileArrowIcon(
+                          tile_arrowIcon(
                             nickname: "2022 토스증권 주식대상",
                             word: "32894명 봤어요",
                             img: "트로피",
                           ),
-                          TileArrowIcon(
+                          tile_arrowIcon(
                             nickname: '''테슬라 주가가 또 8% 넘게
 떨어졌어요''',
                             word: "20374명 봤어요",
                             img: "자동차",
                           ),
-                          TileArrowIcon(
+                          tile_arrowIcon(
                             nickname: "해운사와 항공사, 동반 상승",
                             word: "32920명 봤어요",
                             img: "비행기",
@@ -189,19 +189,19 @@ class _TodayDiscoveryTestState extends State<TodayDiscoveryTest>
                     Container(
                       height: screenHeight / 16,
                       alignment: Alignment.center,
-                      child: const Text("더보기"),
+                      child: Text("더보기"),
                     ),
                   ],
                 ),
               ),
-              const BlackDivider(),
-              SizedBox(
+              BlackDivider(),
+              Container(
                 height: 701,
                 //padding: EdgeInsets.only(top: 20, left: 20),
                 child: Column(
                   children: [
                     Container(
-                      padding: const EdgeInsets.only(top: 20, left: 15),
+                      padding: EdgeInsets.only(top: 20, left: 15),
                       alignment: Alignment.centerLeft,
                       height: 50,
                       child: const Text(
@@ -213,16 +213,16 @@ class _TodayDiscoveryTestState extends State<TodayDiscoveryTest>
                       height: 600,
                       child: Column(
                         children: [
-                          const list_tile(),
+                          list_tile(),
                           Container(
-                            padding: const EdgeInsets.only(left: 60),
-                            child: const message_box(),
+                            padding: EdgeInsets.only(left: 60),
+                            child: message_box(),
                           ),
-                          const SizedBox(height: 20),
-                          const list_tile(),
+                          SizedBox(height: 20),
+                          list_tile(),
                           Container(
-                            padding: const EdgeInsets.only(left: 60),
-                            child: const message_box(),
+                            padding: EdgeInsets.only(left: 60),
+                            child: message_box(),
                           ),
                         ],
                       ),
@@ -234,12 +234,12 @@ class _TodayDiscoveryTestState extends State<TodayDiscoveryTest>
                     Container(
                       height: 50,
                       alignment: Alignment.center,
-                      child: const Text("다른 커뮤니티 보기"),
+                      child: Text("다른 커뮤니티 보기"),
                     ),
                   ],
                 ),
               ),
-              const BlackDivider(),
+              BlackDivider(),
               const SendOpinion(),
               const Divider(
                 height: 1.0,

@@ -29,14 +29,14 @@ class _miniTabbarState extends State<miniTabbar> with TickerProviderStateMixin {
       children: [
         Container(
           height: 30.0,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             border: Border(
               bottom: BorderSide(color: Colors.grey),
             ),
             color: Color(0xFF18171D),
           ),
           child: TabBar(
-            tabs: const [
+            tabs: [
               miniTabs(
                 label: '거래량',
               ),
@@ -91,7 +91,7 @@ class _RealtimeTabsState extends State<RealtimeTabs> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(color: Colors.grey),
         ),
@@ -144,7 +144,7 @@ class RealtimeChartlist extends StatelessWidget {
       color: Colors.black,
       alignment: Alignment.center,
       //child: horiScroll(), //나중에 가로스크롤 파일 추가
-      child: const PageStockList(),
+      child: const pageStock_list(),
     );
   }
 }
@@ -162,8 +162,7 @@ class miniTabs extends StatelessWidget {
       alignment: Alignment.center,
       child: Text(
         label,
-        style: TextStyle(
-            fontSize: screenWidth * 0.04, fontWeight: FontWeight.bold),
+        style: TextStyle(fontSize: screenWidth * 0.04, fontWeight: FontWeight.bold),
       ),
     );
   }
