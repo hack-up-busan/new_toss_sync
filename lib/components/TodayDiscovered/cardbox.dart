@@ -8,13 +8,13 @@ class CardBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Card(
-        margin: const EdgeInsets.only(top: 20.0),
+        margin: EdgeInsets.only(top: 20.0),
         child: SizedBox(
           width: 100,
           child: Column(
             mainAxisSize: MainAxisSize.min,
-            children: const <Widget>[
-              ListTile(
+            children: <Widget>[
+              const ListTile(
                 leading: Icon(Icons.mail),
                 title: Text('국내'),
                 subtitle: Text('2일 후'),
@@ -64,7 +64,7 @@ class FilledCardExample extends StatelessWidget {
             radius: 20.0,
             child: Image.asset('assets/images/$countryFlagName.png'),
           ),
-          const SizedBox(width: 15.0),
+          SizedBox(width: 15.0),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -74,7 +74,7 @@ class FilledCardExample extends StatelessWidget {
                     boundary,
                     style: kBoundaryTextStyle,
                   ),
-                  const SizedBox(
+                  SizedBox(
                     width: 5.0,
                   ),
                   const Icon(

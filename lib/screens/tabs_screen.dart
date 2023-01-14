@@ -79,7 +79,7 @@ class _TabsScreenState extends State<TabsScreen> {
               child: Text(tx.name),
             );
           }).toList()),
-          const TodayDiscovery(),
+          TodayDiscovery(),
         ]),
         bottomNavigationBar: Container(
           decoration: const BoxDecoration(
