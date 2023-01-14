@@ -8,6 +8,7 @@ import 'appbar_icon.dart';
 import 'battom_navigationbar.dart';
 import 'components/constants.dart';
 import 'package:toss_assemble/components/tabs.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 class MyBehavior extends ScrollBehavior {
   @override
@@ -17,7 +18,11 @@ class MyBehavior extends ScrollBehavior {
   }
 }
 
-void main() => runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
