@@ -144,7 +144,7 @@ class RealtimeChartlist extends StatelessWidget {
       color: Colors.black,
       alignment: Alignment.center,
       //child: horiScroll(), //나중에 가로스크롤 파일 추가
-      child: const pageStock_list(),
+      child: StockListPage(),
     );
   }
 }
