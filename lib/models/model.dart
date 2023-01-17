@@ -3,7 +3,6 @@ class Stock{ // final 전달받은 데이터에 따라 각각 다른 주식카�
   final String imgPath;
   final String addPerson;
 //final String addButton;
-
   Stock(this.name, this.imgPath, this.addPerson);
 //this.addButton
 }
