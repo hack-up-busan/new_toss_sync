@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:toss_assemble/today_discovery_test.dart';
+import 'models/stock_model_provider.dart';
 import 'screens/search_screen.dart';
 import 'screens/setting_screen.dart';
 import 'screens/calendar_screen.dart';
@@ -29,27 +31,33 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        FocusManager.instance.primaryFocus?.unfocus();
-      },
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          textTheme: const TextTheme(
-              bodyText2:
-              TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-          // scaffoldBackgroundColor: const Color.fromARGB(141, 0, 0, 0),
-          scaffoldBackgroundColor: kAllThemeColour,
-          appBarTheme: AppBarTheme(
-            color: kAllThemeColour,
-          ),
-        ),
-        routes: {
-          '/settings': (context) => const SettingScreen(),
-          '/calendars': (context) => const CalendarScreen(),
+    return MultiProvider(
+      providers: [
+        //프로바이더 관리
+        ChangeNotifierProvider(create: (_) => StockProvider(),
+        )],
+      child: GestureDetector(
+        onTap: () {
+          FocusManager.instance.primaryFocus?.unfocus();
         },
-        home: const StockPage(),
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            textTheme: const TextTheme(
+                bodyText2:
+                TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+            // scaffoldBackgroundColor: const Color.fromARGB(141, 0, 0, 0),
+            scaffoldBackgroundColor: kAllThemeColour,
+            appBarTheme: AppBarTheme(
+              color: kAllThemeColour,
+            ),
+          ),
+          routes: {
+            '/settings': (context) => const SettingScreen(),
+            '/calendars': (context) => const CalendarScreen(),
+          },
+          home: const StockPage(),
+        ),
       ),
     );
   }
@@ -169,3 +177,4 @@ class _StockPageState extends State<StockPage>
     );
   }
 }
+
