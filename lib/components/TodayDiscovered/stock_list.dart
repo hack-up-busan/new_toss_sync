@@ -32,10 +32,6 @@ class StockListPage extends StatelessWidget{
                     borderRadius: BorderRadius.zero
                 ),
                 child: ListTile(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/click_stocks',
-                      arguments: stockProvider.stocks[index]);
-                  },
                   title: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

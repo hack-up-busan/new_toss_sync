@@ -7,6 +7,7 @@ class Stock {
   //late String imgPath;
   late int price;
 
+
   Stock({
     required this.id,
     required this.stockName,

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:toss_assemble/screens/click_stock_screen.dart';
 import 'package:toss_assemble/today_discovery_test.dart';
 import 'models/stock_model_provider.dart';
 import 'screens/search_screen.dart';
@@ -34,6 +33,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        //프로바이더 관리
         ChangeNotifierProvider(create: (_) => StockProvider(),
         )],
       child: GestureDetector(
@@ -55,7 +55,6 @@ class MyApp extends StatelessWidget {
           routes: {
             '/settings': (context) => const SettingScreen(),
             '/calendars': (context) => const CalendarScreen(),
-            '/click_stocks': (context) => const ClickStockScreen(),
           },
           home: const StockPage(),
         ),
@@ -178,3 +177,4 @@ class _StockPageState extends State<StockPage>
     );
   }
 }
+
