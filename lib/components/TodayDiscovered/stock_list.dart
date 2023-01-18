@@ -16,8 +16,8 @@ class StockListPage extends StatelessWidget{
     return FutureBuilder(
       future: stockProvider.fetchStocks(),
       builder: (context, snapshots) {
-        if (stockProvider.stocks.length == 0) {
-          return Center(
+        if (stockProvider.stocks.isEmpty) {
+          return const Center(
             child: CircularProgressIndicator(),
           );
         }
@@ -44,7 +44,7 @@ class StockListPage extends StatelessWidget{
                         ),
                       ),
                       Text(
-                        stockProvider.stocks[index].price.toString() + '원',
+                        '${stockProvider.stocks[index].price}원',
                         style: const TextStyle(color: Color(0xFFD1D1E0), fontSize: 13.0),
                       ),
                     ],
