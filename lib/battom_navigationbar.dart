@@ -38,6 +38,7 @@ class BottomNavigaitionBars extends StatelessWidget {
           ),
           const BottomNavigationBarItem(
               icon: Icon(Icons.density_medium), label: '전체')
-        ]);
+        ]
+    );
   }
 }

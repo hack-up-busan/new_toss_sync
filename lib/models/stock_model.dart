@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Stock {
   late String id;//문서 ID
-
   late String stockName;
   //late String imgPath;
   late int price;

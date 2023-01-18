@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:toss_assemble/models/like_model.dart';
+import 'package:toss_assemble/screens/afterlike_screen.dart';
 import 'package:toss_assemble/today_discovery_test.dart';
 import 'models/stock_model_provider.dart';
 import 'screens/search_screen.dart';
@@ -34,7 +36,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         //프로바이더 관리
-        ChangeNotifierProvider(create: (_) => StockProvider(),
+        ChangeNotifierProvider(create: (context) => LikeProvider()),
+        ChangeNotifierProvider(create: (context) => StockProvider(number: 0),
         )],
       child: GestureDetector(
         onTap: () {
@@ -173,6 +176,17 @@ class _StockPageState extends State<StockPage>
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20.0), topRight: Radius.circular(20.0)),
         child: BottomNavigaitionBars(),
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          final route = MaterialPageRoute(
+              builder: (context) => const LikePage(),
+          );
+          Navigator.push(context, route);
+        },
+        label: const Text('좋아요'),
+        icon: const Icon(Icons.thumb_up),
+        backgroundColor: Colors.pink,
       ),
     );
   }

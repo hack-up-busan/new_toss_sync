@@ -6,9 +6,16 @@ import 'stock_model.dart';
 class StockProvider with ChangeNotifier {
   late CollectionReference stocksReference;
   List<Stock> stocks = [];
+  late int number = 0;
 
-  StockProvider({reference}) {
+  StockProvider({reference, required int number}) {
     stocksReference = reference ?? FirebaseFirestore.instance.collection('stocks');
+
+  }
+
+  void plusNumber() {
+    number++;
+    notifyListeners();
   }
 
   Future<void> fetchStocks() async {
