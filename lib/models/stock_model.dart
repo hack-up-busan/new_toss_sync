@@ -2,16 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Stock {
   late String id;//문서 ID
-
   late String stockName;
-  //late String imgPath;
   late int price;
-
-
   Stock({
     required this.id,
     required this.stockName,
-    //required this.imgPath,
     required this.price,
   });
   //파이어 베이스에서 제공하는 패키지인 documentSnapshot을 이용해서 데이터를 가져올 수 있음
@@ -20,7 +15,6 @@ class Stock {
     Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
     id = snapshot.id;
     stockName = data['name'];
-    //imgPath = data['imgPath'];
     price = data['price'];
   }
 }

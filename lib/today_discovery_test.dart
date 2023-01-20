@@ -129,7 +129,7 @@ class _TodayDiscoveryTestState extends State<TodayDiscoveryTest>
                           TileArrowIcon(
                             nickname: "테슬라",
                             word: "연 3.17%",
-                            img: "tesla",
+                            img: "테슬라",
                           ),
                         ],
                       ),
@@ -139,7 +139,7 @@ class _TodayDiscoveryTestState extends State<TodayDiscoveryTest>
                       color: Colors.white,
                     ),
                     Container(
-                      height: screenHeight / 16,
+                      height: screenHeight / 18,
                       alignment: Alignment.center,
                       child: Text("더보기"),
                     ),
@@ -147,7 +147,7 @@ class _TodayDiscoveryTestState extends State<TodayDiscoveryTest>
                 ),
               ),
               BlackDivider(),
-              Container(
+              SizedBox(
                 height: screenHeight / 2,
                 child: Column(
                   children: [
@@ -187,7 +187,7 @@ class _TodayDiscoveryTestState extends State<TodayDiscoveryTest>
                       color: Colors.white,
                     ),
                     Container(
-                      height: screenHeight / 16,
+                      height: screenHeight / 18,
                       alignment: Alignment.center,
                       child: Text("더보기"),
                     ),

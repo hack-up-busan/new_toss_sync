@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../models/model.dart';
 import '../constants.dart';
-
 import 'package:provider/provider.dart';
 import '../../models/stock_model_provider.dart';
 
@@ -22,6 +20,7 @@ class StockListPage extends StatelessWidget{
           );
         }
         else {
+
           return ListView.builder(
             itemCount: stockProvider.stocks.length,
             itemBuilder: (context, index) {
@@ -32,21 +31,32 @@ class StockListPage extends StatelessWidget{
                     borderRadius: BorderRadius.zero
                 ),
                 child: ListTile(
-                  title: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      //Image.network(stockProvider.stocks[index].imgPath),
-                      Text(
-                        stockProvider.stocks[index].stockName,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 17.0,
-                        ),
+                      CircleAvatar(
+                        backgroundImage: AssetImage('assets/images/${stockProvider.stocks[index].stockName}.png'),
+                        radius: 20,
                       ),
-                      Text(
-                        '${stockProvider.stocks[index].price}원',
-                        style: const TextStyle(color: Color(0xFFD1D1E0), fontSize: 13.0),
+
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          //Image.network(stockProvider.stocks[index].imgPath),
+                          Text(
+                            stockProvider.stocks[index].stockName,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 17.0,
+                            ),
+                          ),
+                          Text(
+                            '${stockProvider.stocks[index].price}원',
+                            style: const TextStyle(color: Color(0xFFD1D1E0), fontSize: 13.0),
+                          ),
+                        ],
                       ),
+
                     ],
                   ),
                   /*leading: SizedBox(

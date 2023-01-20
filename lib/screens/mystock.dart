@@ -45,7 +45,7 @@ class _MyStocksState extends State<MyStocks> {
             ),
             const Nationality('해외'),
             const InvestStock(
-                image: 'tesla.png',
+                image: '테슬라.png',
                 loss: '-210(4.7&)',
                 stockName: '테슬라',
                 stockNumbers: '0.011814',
