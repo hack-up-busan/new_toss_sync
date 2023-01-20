@@ -18,5 +18,6 @@ class StockProvider with ChangeNotifier {
       }).toList();
     });
     notifyListeners();
+
   }
 }

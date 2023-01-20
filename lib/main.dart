@@ -33,9 +33,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        //프로바이더 관리
-        ChangeNotifierProvider(create: (_) => StockProvider(),
-        )],
+        ChangeNotifierProvider(create: (_) => StockProvider(),),
+
+      ],
       child: GestureDetector(
         onTap: () {
           FocusManager.instance.primaryFocus?.unfocus();
