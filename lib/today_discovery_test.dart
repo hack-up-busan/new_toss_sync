@@ -76,7 +76,7 @@ class _TodayDiscoveryTestState extends State<TodayDiscoveryTest>
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15.0,
               ),
               const Padding(
