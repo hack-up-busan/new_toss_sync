@@ -54,7 +54,7 @@ class _TodayDiscoveryTestState extends State<TodayDiscoveryTest>
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 15.0,
               ),
               Row(
